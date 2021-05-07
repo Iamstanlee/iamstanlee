@@ -2,7 +2,7 @@
 
 - 👍 Ask me about flutter, hackingg. 
 - 💻 Job hunting (Remote, Freelance)
-- 📫 How to reach me:    [My portfolio](https://stanlee.xyz), [Email](mailto:akpamastanlee@gmail.com), [Twitter](https://twitter.com/iamstanlee_)
+- 📫 How to reach me:    [My portfolio](https://stanleee.me), [Email](mailto:akpamastanlee@gmail.com), [Twitter](https://twitter.com/iamstanlee_)
 
 
 ![Profile views](https://gpvc.arturio.dev/iamstanlee)
