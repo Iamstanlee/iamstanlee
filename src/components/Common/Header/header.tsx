@@ -48,7 +48,7 @@ export default function Header() {
                 <a href="https://github.com/iamstanlee">
                   <i className="fab fa-github"></i>
                 </a>
-                <a href="hhttps://twitter.com/iamstanlee_">
+                <a href="https://twitter.com/iamstanlee_">
                   <i className="fab fa-twitter"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/stan0x01/">
