@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SocialIconsList from '../socialIconsList';
 import './header.scss';
 
 export default function Header() {
@@ -44,17 +45,7 @@ export default function Header() {
               <a href="mailto:hey@stanleee.me" className="mt-4">
                 hey@stanleee.me
               </a>
-              <div className="social_icons">
-                <a href="https://github.com/iamstanlee">
-                  <i className="fab fa-github"></i>
-                </a>
-                <a href="https://twitter.com/iamstanlee_">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/stan0x01/">
-                  <i className="fab fa-linkedin"></i>
-                </a>
-              </div>
+              <SocialIconsList cn="social_icons" />
             </div>
           </div>
         </nav>

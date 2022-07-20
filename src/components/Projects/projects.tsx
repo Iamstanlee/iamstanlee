@@ -34,6 +34,17 @@ export default function Projects(props: ProjectsProps) {
                   {project.description}
                 </p>
               </article>
+              {project.links.map((link, idx) => (
+                <span>
+                  <a
+                    className="project_link"
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >{`${link.name}`}</a>
+                  {idx !== project.links.length - 1 && <span>{`, `}</span>}
+                </span>
+              ))}
             </section>
           ))}
         </div>

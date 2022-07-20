@@ -6,6 +6,7 @@ import Mobile from './components/Base/mobile';
 import Projects from './components/Projects/projects';
 import Resume from './components/Resume/resume';
 import Header from './components/Common/Header/header';
+import SocialIconsList from './components/Common/socialIconsList';
 
 function App() {
   const [menu, setMenu] = useState<string[]>(['active_menu', '']);
@@ -37,17 +38,7 @@ function App() {
               <Route exact path="/projects" render={(_) => <Projects activeMenu={activeMenu} />} />
             </Switch>
           </div>
-          <div className="social_buttons">
-            <a href="https://github.com/iamstanlee" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-github"></i>
-            </a>
-            <a href="https://twitter.com/iamstanlee_" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/stan0x01/" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-linkedin"></i>
-            </a>
-          </div>
+          <SocialIconsList cn="social_buttons" />
         </div>
         <div className="app-container">
           <div className="m-fixed">

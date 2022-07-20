@@ -50,7 +50,7 @@ export default function Resume(props: ResumeProp) {
         <div className="skills">
           {resume.skills.map((skill, idx) => (
             <p key={`skill-${idx}`} className="">
-              <span className="pr-2 font-bold text-white">{skill.title}: </span> {skill.body.join(', ')}
+              <span className="pr-2 text-white">{skill.title}: </span> {skill.body.join(', ')}
             </p>
           ))}
         </div>
