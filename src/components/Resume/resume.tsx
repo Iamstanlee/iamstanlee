@@ -24,11 +24,7 @@ export default function Resume(props: ResumeProp) {
         <div className="top_row">
           <h2>{resume.name}</h2>
           <div className="buttons">
-            <a
-              href="https://docs.google.com/document/d/12AGNPqEdltlhUTpOOW5haEX7CSBF6A4QFumI0s37CYE/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="/Stanley_Akpama_Resume.pdf" download target="_blank" rel="noopener noreferrer">
               <small>
                 <i className="fas fa-download"></i> <span>Download </span>
               </small>
