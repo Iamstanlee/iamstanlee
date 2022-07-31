@@ -79,4 +79,15 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    name: 'Pokedex',
+    description: 'A Pokedex app to search for pokemon and see their details that demonstrates layered architecture, seperation of concerns and testing',
+    technologies: ['Flutter'],
+    links: [
+      {
+        name: 'github',
+        url: 'https://github.com/iamstanlee/pokedex',
+      },
+    ],
+  },
 ];

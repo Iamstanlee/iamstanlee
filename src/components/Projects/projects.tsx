@@ -26,7 +26,7 @@ export default function Projects(props: ProjectsProps) {
             <section className="project" key={idx}>
               <p className="title">
                 {project.name}
-                <span>{project.technologies.join(', ')}</span>
+                <span>{project.technologies.map((t) => t.toLowerCase()).join(', ')}</span>
               </p>
               <article className="description">
                 <p key={`desc-${idx}`}>

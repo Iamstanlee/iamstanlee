@@ -53,9 +53,10 @@ const workExperiences: WorkExperience[] = [
     startDate: 'APR 2022',
     endDate: '',
     achievements: [
-      'Led development of OurPass Business App enabling 1000+ businesses to receive online and offline payments',
+      'Led development of OurPass Business App enabling 4000+ businesses to receive online and offline payments',
       'Setup and managed CI/CD pipeline and deployments',
-      'Improved code quality by setting up and adding lint rules, pre-commit checks and unit tests, outcome: - Reduced bug reports and customer turnover(churn rate)',
+      'Improved code quality by implementing a scalable architecture and adding automated tests, outcome: - Reduced bug reports and customer turnover(churn rate)',
+      "Collaborated with product owners to identify, plan and deliver new features, Including but not limited to QR payment, POS integration, improved onboarding and verification process",
     ],
   },
   {

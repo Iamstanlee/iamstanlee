@@ -1,7 +1,7 @@
 
 @font-face {
-  font-family: 'NeueMachina-Regular';
-  src: url('./assets/fonts/NeueMachina-Regular.otf') format('opentype'); 
+  font-family: 'AlbertSans';
+  src: url('./assets/fonts/AlbertSans.ttf') format('truetype'); 
 } 
 
 html, body {
@@ -94,7 +94,7 @@ body {
   --small-font: 13px;
   --xsmall-font: 12px;
   --font-regular: "NeueMachina-Light";
-  --font-regular: "NeueMachina-Regular";
+  --font-regular: "AlbertSans";
 }
 
 @media (min-width: 1440px) {
