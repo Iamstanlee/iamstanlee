@@ -116,7 +116,7 @@ const skills: Skill[] = [
 
 const educations: Education[] = [
   {
-    title: 'B.Sc Computer Engineering at Universify of Benin, Edo state',
+    title: 'B.Sc Computer Engineering at University of Benin, Edo state',
     startDate: 'JAN 2018',
     endDate: 'PRESENT',
     relevant: [
