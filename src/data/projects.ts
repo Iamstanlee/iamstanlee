@@ -75,7 +75,7 @@ export const projects: Project[] = [
     links: [
       {
         name: 'website',
-        url: 'https://safeboxenergy.com',
+        url: 'https://shop.safeboxenergy.com',
       },
     ],
   },

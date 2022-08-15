@@ -4,6 +4,8 @@ export type WorkExperience = {
   startDate: string;
   endDate: string;
   achievements: string[];
+  companyUrl?: string;
+  jobDescription?: string;
 };
 
 export type Skill = {
@@ -48,15 +50,25 @@ const intro =
 
 const workExperiences: WorkExperience[] = [
   {
+    company: 'Bayzat',
+    companyUrl: 'https://www.bayzat.com/',
+    role: 'Software Engineer',
+    startDate: 'AUG 2022',
+    endDate: '',
+    jobDescription: 'Software Engineer on the mobile platform team at Bayzat, Building a world-class employee experience  🚀',
+    achievements: [],
+  },
+  {
     company: 'OurPass',
+    companyUrl: 'https://www.ourpass.co/',
     role: 'Mobile Engineer',
     startDate: 'APR 2022',
-    endDate: '',
+    endDate: 'SEPT 2022',
     achievements: [
       'Led development of OurPass Business App enabling 4000+ businesses to receive online and offline payments',
       'Setup and managed CI/CD pipeline and deployments',
       'Improved code quality by implementing a scalable architecture and adding automated tests, outcome: - Reduced bug reports and customer turnover(churn rate)',
-      "Collaborated with product owners to identify, plan and deliver new features, Including but not limited to QR payment, POS integration, improved onboarding and verification process",
+      'Collaborated with product owners to identify, plan and deliver new features, Including but not limited to QR payment, POS integration, improved onboarding and verification process',
     ],
   },
   {

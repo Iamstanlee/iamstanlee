@@ -60,12 +60,13 @@ export default function Resume(props: ResumeProp) {
           {resume.workExperiences.map((experience, idx) => (
             <section className="experience" key={idx}>
               <p className="title">
-                {experience.company} - {experience.role}
+                <a href={experience.companyUrl} target="_blank">{experience.company}</a> - {experience.role}
                 <span>
                   <br /> {experience.startDate} - {experience.endDate ? experience.endDate : 'PRESENT'}
                 </span>
               </p>
               <article className="description">
+                {experience.jobDescription && <p>{experience.jobDescription}</p>}
                 {experience.achievements.map((achievement, idx) => (
                   <p key={`achievement-${idx}`}>
                     <span>➜</span>
