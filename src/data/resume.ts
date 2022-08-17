@@ -84,13 +84,6 @@ const workExperiences: WorkExperience[] = [
     ],
   },
   {
-    company: 'Uptone',
-    role: 'Mobile Engineer',
-    startDate: 'MAY 2021',
-    endDate: 'JUNE 2021',
-    achievements: ['Feature and UI implementation'],
-  },
-  {
     company: 'Gofast International Projects Ltd',
     role: 'Software Developer',
     startDate: 'JAN 2020',
