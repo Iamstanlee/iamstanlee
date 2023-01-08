@@ -69,17 +69,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: 'Safebox Energy',
-    description: 'An ecommerce app for safebox energy',
-    technologies: ['ReactJS'],
-    links: [
-      {
-        name: 'website',
-        url: 'https://shop.safeboxenergy.com',
-      },
-    ],
-  },
-  {
     name: 'Pokedex',
     description: 'A Pokedex app to search for pokemon and see their details that demonstrates layered architecture, seperation of concerns and testing',
     technologies: ['Flutter'],

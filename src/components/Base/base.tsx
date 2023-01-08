@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import arrow from '../../assets/svgs/arrow.svg';
 import navLine from '../../assets/svgs/menu-line.svg';
-import profileImg from '../../assets/svgs/profile_pic.jpg';
+import profileImg from '../../assets/imgs/profile_pic.jpg';
 import './base.scss';
 
 export default function Base({ menu }: any) {
@@ -22,7 +22,8 @@ export default function Base({ menu }: any) {
           <p>
             <span>
               I'm a <span style={{ textDecoration: 'line-through', color: '#ffffff', opacity: 0.7 }}>Software</span>
-              <span className="highlight"> Product Engineer</span>. I'm passionate about building products and experiences that improves the way people do things.
+              <span className="highlight"> Product Engineer</span>. I'm passionate about building products and
+              experiences that improves the way people do things.
             </span>
           </p>
         </div>

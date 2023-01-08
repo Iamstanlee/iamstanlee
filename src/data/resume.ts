@@ -46,7 +46,7 @@ const name = 'Stanley Akpama';
 const title = 'Software Engineer';
 
 const intro =
-  "I'm a product minded software engineer with experience in mobile and frontend development,  I enjoy working on products that improve people's lives. I'm constantly looking for ways to make products better and more efficient, and I love working with a team to bring a product from concept to completion.";
+  "As a product-focused software engineer, I am dedicated to creating intuitive and user-friendly applications. My background in computer engineering and diverse industry experience has allowed me to develop a strong skill set in delivering high-quality software that addresses the needs of both users and businesses. I am constantly seeking opportunities for personal and professional growth, and strive to make a positive impact through my work.";
 
 const workExperiences: WorkExperience[] = [
   {
@@ -55,20 +55,22 @@ const workExperiences: WorkExperience[] = [
     role: 'Software Engineer',
     startDate: 'AUG 2022',
     endDate: '',
-    jobDescription: 'Software Engineer on the mobile platform team at Bayzat, Building a world-class employee experience  🚀',
+    jobDescription:
+      'Software Engineer on the mobile team at Bayzat, Working on HR, payroll and employee benefits software. 🚀',
     achievements: [],
   },
   {
     company: 'OurPass',
     companyUrl: 'https://www.ourpass.co/',
-    role: 'Mobile Engineer',
+    role: 'Lead Mobile Engineer',
     startDate: 'APR 2022',
-    endDate: 'SEPT 2022',
+    endDate: 'OCT 2022',
     achievements: [
-      'Led development of OurPass Business App enabling 4000+ businesses to receive online and offline payments',
-      'Setup and managed CI/CD pipeline and deployments',
-      'Improved code quality by implementing a scalable architecture and adding automated tests, outcome: - Reduced bug reports and customer turnover(churn rate)',
-      'Collaborated with product owners to identify, plan and deliver new features, Including but not limited to QR payment, POS integration, improved onboarding and verification process',
+      'Led development of OurPass business application enabling 4000+ businesses to receive online and offline payments.',
+      'Assisted in the development and implementation of EMV(Europay, Mastercard, and Visa standard) card payment processing and additional value-added services for OurPass point-of-sale application.',
+      'Collaborated with product owners to identify, plan, and deliver new features, such as QR payments, point-of-sale integration, and improved onboarding and verification process.',
+      'Implemented a scalable architecture and added automated tests to improve code quality, resulting in a reduction in bug reports and customer turnover (churn rate).',
+      'Set up and managed the CI/CD pipeline and was responsible for deployments.',
     ],
   },
   {
@@ -89,9 +91,9 @@ const workExperiences: WorkExperience[] = [
     startDate: 'JAN 2020',
     endDate: 'OCT 2020',
     achievements: [
-      'Rebuilt the gofast mobile payment app, Implementing a new design, payment flow and overall architecture',
-      'Built an internal admin panel for tracking app metrics and KPIs such as Acquisition, Engagement, Payments & Transactions',
-      'Implemented a minimal support ticketing and dispute resolution system',
+      'Rebuilt the gofast mobile payment app, Implementing a new design, payment flow and overall architecture.',
+      'Built an internal admin panel for tracking app metrics and KPIs such as Acquisition, Engagement, Payments & Transactions.',
+      'Implemented a minimal support ticketing and dispute resolution system.',
     ],
   },
 ];
@@ -99,19 +101,15 @@ const workExperiences: WorkExperience[] = [
 const skills: Skill[] = [
   {
     title: 'Languages',
-    body: ['Dart', 'Kotlin', 'JavaScript/TypeScript'],
+    body: ['Dart', 'Kotlin', 'Java', 'Swift'],
   },
   {
     title: 'Mobile',
-    body: ['Flutter', 'React Native', 'Jetpack Compose'],
-  },
-  {
-    title: 'Frontend',
-    body: ['HTML/CSS', 'React', 'Nextjs'],
+    body: ['Flutter', 'Jetpack Compose', 'SwiftUI'],
   },
   {
     title: 'Tooling',
-    body: ['Linux', 'Git', 'Github Action', 'Codemagic', 'Jenkins', 'Circle CI'],
+    body: ['Linux', 'Git', 'Github Action', 'Bitrise', 'Codemagic', 'Jenkins', 'Circle CI'],
   },
   {
     title: 'Others',
@@ -121,9 +119,9 @@ const skills: Skill[] = [
 
 const educations: Education[] = [
   {
-    title: 'B.Sc Computer Engineering at University of Benin, Edo state',
+    title: 'B.Eng Computer Engineering at University Of Benin, Nigeria',
     startDate: 'JAN 2018',
-    endDate: 'PRESENT',
+    endDate: 'JAN 2022',
     relevant: [
       'Introduction to Computing',
       'Data Structures and Algorithms',
