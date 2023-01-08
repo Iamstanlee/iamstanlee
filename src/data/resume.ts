@@ -46,7 +46,7 @@ const name = 'Stanley Akpama';
 const title = 'Software Engineer';
 
 const intro =
-  "As a product-focused software engineer, I am dedicated to creating intuitive and user-friendly applications. My background in computer engineering and diverse industry experience has allowed me to develop a strong skill set in delivering high-quality software that addresses the needs of both users and businesses. I am constantly seeking opportunities for personal and professional growth, and strive to make a positive impact through my work.";
+  'As a product-focused software engineer, I am dedicated to creating intuitive and user-friendly applications. My background in computer engineering and diverse industry experience has allowed me to develop a strong skill set in delivering high-quality software that addresses the needs of both users and businesses. I am constantly seeking opportunities for personal and professional growth, and strive to make a positive impact through my work.';
 
 const workExperiences: WorkExperience[] = [
   {
@@ -105,15 +105,15 @@ const skills: Skill[] = [
   },
   {
     title: 'Mobile',
-    body: ['Flutter', 'Jetpack Compose', 'SwiftUI'],
+    body: ['Flutter', 'Jetpack compose', 'SwiftUI'],
   },
   {
     title: 'Tooling',
-    body: ['Linux', 'Git', 'Github Action', 'Bitrise', 'Codemagic', 'Jenkins', 'Circle CI'],
+    body: ['Xcode', 'Android studio', 'Git', 'Github action', 'Bitrise', 'Codemagic'],
   },
   {
     title: 'Others',
-    body: ['REST API', 'Graphql', 'Firebase', 'GCP'],
+    body: ['REST API', 'Graphql', 'Firebase', 'GCP', 'Web3'],
   },
 ];
 
