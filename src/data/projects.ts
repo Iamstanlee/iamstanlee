@@ -13,7 +13,7 @@ type ProjectLink = {
 export const projects: Project[] = [
   {
     name: 'Expense Bud',
-    description: 'An app to keep of track your expenses and stay on top of your game with detailed insights 🚀',
+    description: 'An app that helps users track their expenses and provides detailed insights to help them stay on top of their finances. 🚀',
     technologies: ['Flutter'],
     links: [
       {
@@ -27,8 +27,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: 'Kivifood (user)',
-    description: 'An app allowing users to order food from the comfort of their homes',
+    name: 'Kivifood',
+    description: 'An app that enables users to order food for delivery or pickup from local restaurants from the convenience of their own homes.',
     technologies: ['Flutter', 'Firebase', 'Cloud Functions'],
     links: [
       {
@@ -42,8 +42,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: 'Kivifood (business)',
-    description: 'An app allowing businesses to manage their food orders, receive payments and manage their inventory',
+    name: 'Kivifood (vendor app)',
+    description: 'An app that allows businesses to easily manage food orders, accept payments, and keep track of their inventory.',
     technologies: ['Flutter', 'Firebase', 'Cloud Functions'],
     links: [
       {
@@ -59,7 +59,7 @@ export const projects: Project[] = [
   {
     name: 'Linkfy Text',
     description:
-      'A lightweight flutter package to linkify texts containing urls, emails and hashtags like twitter does',
+      'A lightweight Flutter package that can identify and convert URLs, emails, and hashtags in a text string into clickable links, similar to the way Twitter handles them.',
     technologies: ['Flutter'],
     links: [
       {
@@ -70,7 +70,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Pokedex',
-    description: 'A Pokedex app to search for pokemon and see their details that demonstrates layered architecture, seperation of concerns and testing',
+    description: 'A Pokedex App: Demonstrating Layered Architecture, Separation of Concerns, and Thorough Testing.',
     technologies: ['Flutter'],
     links: [
       {

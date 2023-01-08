@@ -41,7 +41,8 @@ export default function Projects(props: ProjectsProps) {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                  >{`${link.name}`}</a>
+                  >{`${link.name}`}</a>{' '}
+                  <i className="fa fa-external-link-alt fa-xs"></i>
                   {idx !== project.links.length - 1 && <span>{`, `}</span>}
                 </span>
               ))}
