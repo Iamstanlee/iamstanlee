@@ -51,6 +51,29 @@ export const projects: Project[] = [
         ],
     },
     {
+        name: 'Pokedex',
+        description: 'A Pokedex App: Demonstrating Layered Architecture, Separation of Concerns, and Thorough Testing.',
+        technologies: ['Flutter'],
+        links: [
+            {
+                name: 'github',
+                url: 'https://github.com/iamstanlee/pokedex',
+            },
+        ],
+    },
+    {
+        name: 'Linkfy Text',
+        description:
+            'A lightweight Flutter package that can identify and convert URLs, emails, and hashtags in a text string into clickable links, similar to the way Twitter handles them.',
+        technologies: ['Flutter'],
+        links: [
+            {
+                name: 'github',
+                url: 'https://github.com/Iamstanlee/linkfy_text',
+            },
+        ],
+    },
+    {
         name: 'Kivifood',
         description: 'An app that enables users to order food for delivery or pickup from local restaurants from the convenience of their own homes.',
         technologies: ['Flutter', 'Firebase', 'Cloud Functions'],
@@ -77,29 +100,6 @@ export const projects: Project[] = [
             {
                 name: 'appstore',
                 url: 'https://apps.apple.com/us/app/kivifood-vendor/id1588656247',
-            },
-        ],
-    },
-    {
-        name: 'Linkfy Text',
-        description:
-            'A lightweight Flutter package that can identify and convert URLs, emails, and hashtags in a text string into clickable links, similar to the way Twitter handles them.',
-        technologies: ['Flutter'],
-        links: [
-            {
-                name: 'github',
-                url: 'https://github.com/Iamstanlee/linkfy_text',
-            },
-        ],
-    },
-    {
-        name: 'Pokedex',
-        description: 'A Pokedex App: Demonstrating Layered Architecture, Separation of Concerns, and Thorough Testing.',
-        technologies: ['Flutter'],
-        links: [
-            {
-                name: 'github',
-                url: 'https://github.com/iamstanlee/pokedex',
             },
         ],
     },

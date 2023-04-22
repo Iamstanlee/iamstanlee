@@ -57,7 +57,13 @@ const workExperiences: WorkExperience[] = [
         endDate: '',
         jobDescription:
             'Software Engineer on the mobile team at Bayzat, Working on HR, payroll and employee benefits software. 🚀',
-        achievements: [],
+        achievements: [
+            'Developed and enhanced multiple features on Bayzat’s mobile app, including Payroll, Work Expense, Loan Request, Company Survey, Employee Engagement and Third-party Service Integrations, resulting in increased user satisfaction.',
+            'Collaborated effectively with team members to implement a scalable architecture and best practices for the mobile codebase, leading to improved performance and 100% migration to null-safety.',
+            'Proactively resolved user-facing issues in close collaboration with the customer success team, ensuring a seamless experience for users.',
+            'Implemented comprehensive test suites (both automated and manual) to ensure the accuracy, validity, and performance of work delivered.',
+            'Authored clear and concise documentation to facilitate knowledge sharing among fellow engineers, enabling more efficient development processes.',
+        ],
     },
     {
         company: 'OurPass',
@@ -65,8 +71,9 @@ const workExperiences: WorkExperience[] = [
         role: 'Lead Mobile Engineer',
         startDate: 'APR 2022',
         endDate: 'NOV 2022',
+        jobDescription:
+            'Led development of OurPass business application enabling 4000+ businesses to receive online and offline payments. 💸',
         achievements: [
-            'Led development of OurPass business application enabling 4000+ businesses to receive online and offline payments.',
             'Assisted in the development and implementation of EMV(Europay, Mastercard, and Visa standard) card payment processing and additional value-added services for OurPass point-of-sale application.',
             'Collaborated with product owners to identify, plan, and deliver new features, such as QR payments, point-of-sale integration, and improved onboarding and verification process.',
             'Implemented a scalable architecture and added automated tests to improve code quality, resulting in a reduction in bug reports and customer turnover (churn rate).',

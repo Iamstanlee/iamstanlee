@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './tailwind.css';
+import {Analytics} from '@vercel/analytics/react';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
+    <React.StrictMode>
+        <App/>
+        <Analytics/>
+    </React.StrictMode>,
+    document.getElementById('root'),
 );
