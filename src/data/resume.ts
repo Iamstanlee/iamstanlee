@@ -20,11 +20,6 @@ export type Education = {
     relevant: string[];
 };
 
-export type Certification = {
-    title: string;
-    date: string;
-};
-
 export type Language = {
     name: string;
     level: string;
@@ -56,7 +51,7 @@ const workExperiences: WorkExperience[] = [
         startDate: 'AUG 2022',
         endDate: '',
         jobDescription:
-            'Software Engineer on the mobile team at Bayzat, Working on HR, payroll and employee benefits software. 🚀',
+            'Software Engineer on the mobile team at Bayzat, Working on HR, payroll and employee benefits software.',
         achievements: [
             'Developed and enhanced multiple features on Bayzat’s mobile app, including Payroll, Work Expense, Loan Request, Company Survey, Employee Engagement and Third-party Service Integrations, resulting in increased user satisfaction.',
             'Collaborated effectively with team members to implement a scalable architecture and best practices for the mobile codebase, leading to improved performance and 100% migration to null-safety.',
@@ -72,7 +67,7 @@ const workExperiences: WorkExperience[] = [
         startDate: 'APR 2022',
         endDate: 'NOV 2022',
         jobDescription:
-            'Led development of OurPass business application enabling 4000+ businesses to receive online and offline payments. 💸',
+            'Led development of OurPass business application enabling 4000+ businesses to receive online and offline payments.',
         achievements: [
             'Assisted in the development and implementation of EMV(Europay, Mastercard, and Visa standard) card payment processing and additional value-added services for OurPass point-of-sale application.',
             'Collaborated with product owners to identify, plan, and deliver new features, such as QR payments, point-of-sale integration, and improved onboarding and verification process.',
@@ -116,7 +111,7 @@ const skills: Skill[] = [
     },
     {
         title: 'Frontend',
-        body: ['React', 'Nextjs', 'Tailwind', 'Ether.js'],
+        body: ['HTML/CSS', 'Reactjs', 'Nextjs', 'Tailwind', 'Ether.js', 'web3js'],
     },
     {
         title: 'Tooling',
@@ -124,7 +119,7 @@ const skills: Skill[] = [
     },
     {
         title: 'Others',
-        body: ['REST API', 'Graphql', 'Firebase', 'GCP', 'Web3'],
+        body: ['REST API', 'Graphql', 'Firebase', 'Ethereum'],
     },
 ];
 
