@@ -52,7 +52,7 @@ const workExperiences: WorkExperience[] = [
         endDate: '',
         achievements: [
             'Developed and iterated on Bayzat’s mobile app features, including Payroll, Work Expense, Loan Request, Company Survey, Employee Engagement and Third-party Service Integrations, resulting in increased customer satisfaction.',
-            'Collaborated effectively with team members to implement a scalable architecture, best practices and 100% migration of legacy code to null-safety., resulting in improved performance, faster load time.',
+            'Collaborated effectively with team members to implement a scalable architecture, best practices and 100% migration of legacy code to null-safety. Resulting in improved performance, faster load time and enhanced developer experience.',
             'Proactively resolved user-facing issues in close collaboration with the customer success team, ensuring a seamless experience for customers.',
             'Implemented comprehensive test suites to ensure the accuracy, validity, and performance of work delivered.',
             'Authored clear and concise documentations to facilitate knowledge sharing among fellow engineers, enabling more efficient development processes.',
@@ -79,8 +79,8 @@ const workExperiences: WorkExperience[] = [
         endDate: 'MAR 2022',
         achievements: [
             'Managed a team of 4 people and led the development of a food delivery product for merchants and customers',
-            'Implemented a simple alerting system integrated with Slack which allowed us to distribute incident information to both customers and the operations team, increasing the efficiency of our day-to-day operations',
-            'Improved our image load time by 67% by implementing an image optimization pipeline that resizes, compresses, and caches images.',
+            'Developed a simple alerting system integrated with Slack which allowed us to distribute incident information to both customers and the operations team, increasing the efficiency of our day-to-day operations',
+            'Implemented an image optimization pipeline that resizes, compresses, and caching images via CDN. Which increased app performance by 67%.',
             'Set up and managed the CI/CD pipeline and deployments.',
         ],
     },
@@ -100,15 +100,15 @@ const workExperiences: WorkExperience[] = [
 const skills: Skill[] = [
     {
         title: 'Languages',
-        body: ['Dart', 'Kotlin', 'Swift', 'Typescript', 'Solidity'],
+        body: ['Dart', 'Swift', 'Javascript & Typescript', 'Solidity'],
     },
     {
         title: 'Mobile',
-        body: ['Flutter', 'React-native', 'Jetpack compose', 'SwiftUI'],
+        body: ['Flutter', 'React native', 'Swift UI'],
     },
     {
         title: 'Frontend',
-        body: ['HTML/CSS', 'Reactjs', 'Nextjs', 'Tailwind', 'Ether.js', 'web3js'],
+        body: ['HTML/CSS','Reactjs', 'Nextjs', 'Tailwind', 'Ethers.js'],
     },
     {
         title: 'Tooling',

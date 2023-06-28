@@ -9,7 +9,7 @@ export default ({ cn }: { cn: string }) => {
       <a href="https://twitter.com/iamstanlee_" target="_blank" rel="noopener noreferrer">
         <i className="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/in/stan0x01/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/iamstanlee/" target="_blank" rel="noopener noreferrer">
         <i className="fab fa-linkedin"></i>
       </a>
       <a href="hhttps://medium.com/@iamstanlee" target="_blank" rel="noopener noreferrer">

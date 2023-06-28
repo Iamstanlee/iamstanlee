@@ -63,7 +63,7 @@ export default function Base({menu}: any) {
                         <img src={arrow} alt="pointer"/>
                     </a>
 
-                    <a href="https://linkedin.com/in/stan0x01" target="_blank" rel="noopener noreferrer">
+                    <a href="https://linkedin.com/in/iamstanlee" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-linkedin"></i> LinkedIn <img src={arrow} alt="pointer"/>
                     </a>
 
