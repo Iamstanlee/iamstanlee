@@ -22,17 +22,17 @@ export const projects: Project[] = [
             },
         ],
     }, {
-        name: 'DeleGPT',
-        description: 'AI powered student course advisor 📚, DeleGPT is a student course advisor that helps students make informed decisions about their courses.',
-        technologies: ['Nextjs', 'Tailwind'],
+        name: 'xGPT',
+        description: 'Personalized and contextual AI chat bot',
+        technologies: ['Nextjs', 'Tailwind', 'OpenAI'],
         links: [
             {
                 name: 'website',
-                url: 'https://dele-gpt.vercel.app',
+                url: 'https://x-gpt.netlify.app',
             },
             {
                 name: 'github',
-                url: 'https://github.com/Iamstanlee/dele_gpt',
+                url: 'https://github.com/Iamstanlee/x_gpt',
             },
         ],
     }, {
