@@ -50,14 +50,12 @@ const workExperiences: WorkExperience[] = [
         role: 'Software Engineer',
         startDate: 'AUG 2022',
         endDate: '',
-        jobDescription:
-            'Software Engineer on the mobile team at Bayzat, Working on HR, payroll and employee benefits software.',
         achievements: [
-            'Developed and enhanced multiple features on Bayzat’s mobile app, including Payroll, Work Expense, Loan Request, Company Survey, Employee Engagement and Third-party Service Integrations, resulting in increased user satisfaction.',
-            'Collaborated effectively with team members to implement a scalable architecture and best practices for the mobile codebase, leading to improved performance and 100% migration to null-safety.',
-            'Proactively resolved user-facing issues in close collaboration with the customer success team, ensuring a seamless experience for users.',
-            'Implemented comprehensive test suites (both automated and manual) to ensure the accuracy, validity, and performance of work delivered.',
-            'Authored clear and concise documentation to facilitate knowledge sharing among fellow engineers, enabling more efficient development processes.',
+            'Developed and iterated on Bayzat’s mobile app features, including Payroll, Work Expense, Loan Request, Company Survey, Employee Engagement and Third-party Service Integrations, resulting in increased customer satisfaction.',
+            'Collaborated effectively with team members to implement a scalable architecture, best practices and 100% migration of legacy code to null-safety., resulting in improved performance, faster load time.',
+            'Proactively resolved user-facing issues in close collaboration with the customer success team, ensuring a seamless experience for customers.',
+            'Implemented comprehensive test suites to ensure the accuracy, validity, and performance of work delivered.',
+            'Authored clear and concise documentations to facilitate knowledge sharing among fellow engineers, enabling more efficient development processes.',
         ],
     },
     {
@@ -66,13 +64,12 @@ const workExperiences: WorkExperience[] = [
         role: 'Lead Mobile Engineer',
         startDate: 'APR 2022',
         endDate: 'NOV 2022',
-        jobDescription:
-            'Led development of OurPass business application enabling 4000+ businesses to receive online and offline payments.',
         achievements: [
-            'Assisted in the development and implementation of EMV(Europay, Mastercard, and Visa standard) card payment processing and additional value-added services for OurPass point-of-sale application.',
-            'Collaborated with product owners to identify, plan, and deliver new features, such as QR payments, point-of-sale integration, and improved onboarding and verification process.',
+            'Led development of OurPass business application enabling 4000+ businesses to receive online and offline payments.',
+            'Collaborated with cross-functional team members in the development and implementation of EMV(Europay, Mastercard, and Visa standard) card payment processing and additional value-added services for OurPass point-of-sale application.',
+            'Worked closely with product owners to identify, plan, and deliver new features, such as QR payments, point-of-sale integration, and improved onboarding and verification process.',
             'Implemented a scalable architecture and added automated tests to improve code quality, resulting in a reduction in bug reports and customer turnover (churn rate).',
-            'Set up and managed the CI/CD pipeline and was responsible for deployments.',
+            'Set up and managed the CI/CD pipeline and deployments.',
         ],
     },
     {
@@ -83,8 +80,8 @@ const workExperiences: WorkExperience[] = [
         achievements: [
             'Managed a team of 4 people and led the development of a food delivery product for merchants and customers',
             'Implemented a simple alerting system integrated with Slack which allowed us to distribute incident information to both customers and the operations team, increasing the efficiency of our day-to-day operations',
-            'Integrated and setup CI/CD pipeline to automate testing and deployment to app stores',
             'Improved our image load time by 67% by implementing an image optimization pipeline that resizes, compresses, and caches images.',
+            'Set up and managed the CI/CD pipeline and deployments.',
         ],
     },
     {
