@@ -41,7 +41,7 @@ const name = 'Stanley Akpama';
 const title = 'Software Engineer';
 
 const intro =
-    'As a product-focused software engineer, I am dedicated to creating intuitive and user-friendly applications. My background in computer engineering and diverse industry experience has allowed me to develop a strong skill set in delivering high-quality software that addresses the needs of both users and businesses. I am constantly seeking opportunities for personal and professional growth, and strive to make a positive impact through my work.';
+    "I'm a software engineer proficient in mobile, frontend and blockchain development. I have 4 years professional expertise in Software Development, with a solid background in computer engineering and a diverse industry experience.";
 
 const workExperiences: WorkExperience[] = [
     {
@@ -108,7 +108,7 @@ const skills: Skill[] = [
     },
     {
         title: 'Frontend',
-        body: ['HTML/CSS','Reactjs', 'Nextjs', 'Tailwind', 'Ethers.js'],
+        body: ['HTML/CSS', 'Reactjs', 'Nextjs', 'Tailwind', 'Ethers.js'],
     },
     {
         title: 'Tooling',

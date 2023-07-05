@@ -21,7 +21,7 @@ export default function Base({menu}: any) {
                     <p>
             <span>
               I'm a <span style={{textDecoration: 'line-through', color: '#ffffff', opacity: 0.7}}>Software</span>
-              <span className="highlight"> Product Engineer</span>. I'm passionate about building innovative products and experiences that elevate user satisfaction and simplify complex workflows.
+              <span className="highlight"> Product Engineer</span>. I'm keen on building the future of money, work and innovative tools.
             </span>
                     </p>
                 </div>

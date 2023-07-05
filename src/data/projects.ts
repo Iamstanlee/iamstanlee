@@ -28,7 +28,7 @@ export const projects: Project[] = [
         links: [
             {
                 name: 'website',
-                url: 'https://x-gpt.netlify.app',
+                url: 'https://x-gpt.stanlee.dev',
             },
             {
                 name: 'github',
