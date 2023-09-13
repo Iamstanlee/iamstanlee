@@ -12,9 +12,9 @@ type ProjectLink = {
 
 export const projects: Project[] = [
     {
-        name: 'WANO.finance',
-        description: 'Web3 payment infrastructure - Seamless payment experience for 20M+ users in web3',
-        technologies: ['Nextjs', 'Tailwind', 'Supabase', 'Postgres', 'Metamask', 'Solidity', 'Layerzero', 'Linea', 'Infura', 'Truffle'],
+        name: 'wano.finance',
+        description: 'Web3 omnichain payment infrastructure - Enhanced payment experience for 20M+ users in web3',
+        technologies: ['Nextjs', 'Tailwind', 'Supabase', 'Postgres', 'Metamask', 'Solidity', 'Layerzero', 'Infura', 'Truffle'],
         links: [
             {
                 name: 'website',
