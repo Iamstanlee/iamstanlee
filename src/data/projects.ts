@@ -12,6 +12,32 @@ type ProjectLink = {
 
 export const projects: Project[] = [
     {
+        name: 'Expense Bud',
+        description: 'An app that helps users track their expenses and provides detailed insights to help them stay on top of their finances. 🚀',
+        technologies: ['Flutter'],
+        links: [
+            {
+                name: 'github',
+                url: 'https://github.com/Iamstanlee/expense_bud',
+            },
+            {
+                name: 'playstore',
+                url: 'https://play.google.com/store/apps/details?id=com.app.expense_bud',
+            },
+        ],
+    },
+    {
+        name: 'Pokedex',
+        description: 'A Pokedex App: Demonstrating Layered Architecture, Separation of Concerns, and Thorough Testing.',
+        technologies: ['Flutter'],
+        links: [
+            {
+                name: 'github',
+                url: 'https://github.com/iamstanlee/pokedex',
+            },
+        ],
+    },
+    {
         name: 'wano.finance',
         description: 'Web3 omnichain payment infrastructure - Enhanced payment experience for 20M+ users in web3',
         technologies: ['Nextjs', 'Tailwind', 'Supabase', 'Postgres', 'Metamask', 'Solidity', 'Layerzero', 'Infura', 'Truffle'],
@@ -43,31 +69,6 @@ export const projects: Project[] = [
             {
                 name: 'github',
                 url: 'https://github.com/Iamstanlee/x_gpt',
-            },
-        ],
-    }, {
-        name: 'Expense Bud',
-        description: 'An app that helps users track their expenses and provides detailed insights to help them stay on top of their finances. 🚀',
-        technologies: ['Flutter'],
-        links: [
-            {
-                name: 'github',
-                url: 'https://github.com/Iamstanlee/expense_bud',
-            },
-            {
-                name: 'playstore',
-                url: 'https://play.google.com/store/apps/details?id=com.app.expense_bud',
-            },
-        ],
-    },
-    {
-        name: 'Pokedex',
-        description: 'A Pokedex App: Demonstrating Layered Architecture, Separation of Concerns, and Thorough Testing.',
-        technologies: ['Flutter'],
-        links: [
-            {
-                name: 'github',
-                url: 'https://github.com/iamstanlee/pokedex',
             },
         ],
     },

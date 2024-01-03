@@ -1,14 +1,13 @@
-
 @font-face {
   font-family: 'AlbertSans';
   src: url('./assets/fonts/AlbertSans.ttf') format('truetype');
-} 
+}
 
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: #101011;
+  background: #101010;
   color: #fff;
 }
 
@@ -33,7 +32,7 @@ h1, h2, h3, h4, h5, h6, p, a {
 }
 
 .app-container .m-fixed {
-  height: 100vh; 
+  height: 100vh;
   width: 50%;
   display: flex;
   justify-content: center;
@@ -52,16 +51,16 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 
 .main::-webkit-scrollbar-track {
-  background: #101011; 
+  background: #101011;
 }
- 
+
 
 .main::-webkit-scrollbar-thumb {
-  background:#101011; 
+  background: #101011;
 }
 
 .main::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
 .app-container .main .pages_container {
@@ -93,7 +92,6 @@ body {
   --normal-font: 14px;
   --small-font: 13px;
   --xsmall-font: 12px;
-  --font-regular: "NeueMachina-Light";
   --font-regular: "AlbertSans";
 }
 
@@ -120,7 +118,7 @@ body {
     padding-left: 8%;
   }
 
-  .App .app-container .main .pages_container  {
+  .App .app-container .main .pages_container {
     padding-right: 8%;
   }
 
@@ -148,7 +146,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     padding: 5%;
-    
+
   }
 
   .mobile_container.set_height {
@@ -161,7 +159,7 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .loader {
-      animation: slide infinite 1.5s linear
+    animation: slide infinite 1.5s linear
   }
 }
 
@@ -180,7 +178,6 @@ body {
     -moz-transform: scale(2);
     -o-transform: scale(2);
     -ms-transform: scale(2);
-    transform: scale(2);
     transform: scale(2);
     opacity: 1;
   }

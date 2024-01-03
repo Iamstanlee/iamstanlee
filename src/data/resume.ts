@@ -51,8 +51,10 @@ const workExperiences: WorkExperience[] = [
         startDate: 'AUG 2022',
         endDate: '',
         achievements: [
-            'Developed and iterated on Bayzat’s mobile app features, including Payroll, Work Expense, Loan Request, Company Survey, Employee Engagement and Third-party Service Integrations, resulting in increased customer satisfaction.',
-            'Collaborated effectively with team members to implement a scalable architecture, best practices and 100% migration of legacy code to null-safety. Resulting in improved performance, faster load time and enhanced developer experience.',
+            'Spearheaded the implementation of a comprehensive 360-degree performance management feature, empowering employees to undergo thorough reviews and receive actionable feedback for continuous professional development.',
+            'Optimized authentication flow through meticulous improvement and refactoring, while implementing Magic Link authentication to enhance user experience and drive lead generation.',
+            'Innovated and refined multiple features such as Payroll, Loan Requests, Company Surveys & Employee Engagement, and Third-party Service Integrations, which significantly elevated customer satisfaction levels.',
+            'Collaborated effectively with team members to implement a scalable architecture, best practices and 100% migration of legacy code to null-safety and modern standards. Resulting in improved performance and enhanced development experience.',
             'Proactively resolved user-facing issues in close collaboration with the customer success team, ensuring a seamless experience for customers.',
             'Implemented comprehensive test suites to ensure the accuracy, validity, and performance of work delivered.',
             'Authored clear and concise documentations to facilitate knowledge sharing among fellow engineers, enabling more efficient development processes.',
@@ -65,8 +67,8 @@ const workExperiences: WorkExperience[] = [
         startDate: 'APR 2022',
         endDate: 'NOV 2022',
         achievements: [
-            'Led development of OurPass business application enabling 5000+ businesses to receive online and offline payments.',
-            'Collaborated with cross-functional team members in the development and implementation of EMV(Europay, Mastercard, and Visa standard) card payment processing and additional value-added services for OurPass point-of-sale application.',
+            'Pioneered the first successful version of the OurPass business app, empowering over 10000 businesses to seamlessly process online and offline payments.',
+            'Collaborated with a cross-functional team in the development and implementation of EMV(Europay, Mastercard, and Visa standard) card payment processing and additional value-added services for OurPass point-of-sale app.',
             'Worked closely with product owners to identify, plan, and deliver new features, such as QR payments, point-of-sale integration, and improved onboarding and verification process.',
             'Implemented a scalable architecture and added automated tests to improve code quality, resulting in a reduction in bug reports and customer turnover (churn rate).',
             'Set up and managed CI/CD pipeline and deployments.',
@@ -112,11 +114,11 @@ const skills: Skill[] = [
     },
     {
         title: 'Tooling',
-        body: ['Xcode', 'Android studio', 'Git', 'Github action', 'Bitrise', 'Codemagic', 'Hardhat'],
+        body: ['Xcode', 'Android studio', 'Git', 'Github action', 'Bitrise', 'Codemagic', 'Hardhat', 'Foundry'],
     },
     {
         title: 'Others',
-        body: ['REST API', 'Graphql', 'Firebase', 'Ethereum'],
+        body: ['NodeJS', 'Graphql', 'Firebase', 'Ethereum'],
     },
 ];
 
@@ -142,7 +144,7 @@ const languages: Language[] = [
     },
     {
         name: 'Spanish',
-        level: 'LEARNING',
+        level: 'LEARNING :)',
     },
 ];
 
