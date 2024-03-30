@@ -44,7 +44,7 @@ export const projects: Project[] = [
         links: [
             {
                 name: 'web',
-                url: 'https://feastpass.com',
+                url: 'https://www.feastpass.com',
             },
         ],
     },
