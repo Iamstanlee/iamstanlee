@@ -69,7 +69,7 @@ export default function Resume(props: ResumeProp) {
                 {experience.jobDescription && <p>{experience.jobDescription}</p>}
                 {experience.achievements.map((achievement, idx) => (
                   <p key={`achievement-${idx}`}>
-                    <span>➜</span>
+                    <span>—</span>
                     {achievement}
                   </p>
                 ))}
@@ -93,7 +93,7 @@ export default function Resume(props: ResumeProp) {
                   {education.startDate} - {education.endDate}
                 </span>
                 <br />
-                <span style={{ fontSize: 13 }}>{`➜ Relevant coursework: ${education.relevant.join(', ')}`}</span>
+                <span style={{ fontSize: 13 }}>{`— Relevant coursework: ${education.relevant.join(', ')}`}</span>
               </p>
             ))}
           </section>
