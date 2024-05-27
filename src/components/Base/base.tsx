@@ -13,7 +13,7 @@ export default function Base({menu}: any) {
                         Hello! I'm <br/> Stanley.
                     </h1>
                     <div className="profile_pic">
-                        <img className="w-48 h-48 rounded-full " src="/profile_pic.jpg" alt="my-avatar"/>
+                        <img className="w-48 h-48 rounded-full " src="/icons/apple-touch-icon.png" alt="my-avatar"/>
                     </div>
                 </div>
 
@@ -56,7 +56,7 @@ export default function Base({menu}: any) {
             </nav>
 
             <div className="footer">
-                <img className="w-16 h-16 rounded-full" src="/profile_pic.jpg" alt=""/>
+                <img className="w-16 h-16 rounded-full" src="/icons/apple-touch-icon.png" alt=""/>
                 <div className="social">
                     <a href="https://github.com/iamstanlee" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-github"></i> Github

@@ -1,25 +1,37 @@
 {
-  "short_name": "stanleee.me",
-  "name": "Stanley Akpama's Portfolio",
+  "name": "Stanley Akpama | Portfolio",
+  "short_name": "SA",
+  "start_url": ".",
+  "description": "Software Engineer - Mobile | Frontend | Web3",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": true,
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "icons/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "16x16 32x32"
     },
     {
-      "src": "src/assets/imgs/logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "src": "src/assets/imgs/logo512.png",
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-192-maskable.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
