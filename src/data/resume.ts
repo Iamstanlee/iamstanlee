@@ -208,7 +208,7 @@ const recommendations: Recommendation[] = [
             profilePicUrl: 'https://media.licdn.com/dms/image/v2/C5603AQHryX9NBKmBJw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1631462939202?e=1733356800&v=beta&t=Zen1pJl3qjpF2kJBBKj3Z-bxJVljcrLSj_QPHXW6vak',
             linkedInUrl: 'https://linkedin.com/in/jeffreyafrane'
         },
-        feedback: 'I worked with Stanley on a project at FeastPass. He is a very talented engineer who is always willing to help out his team members. He is very knowledgeable and always goes the extra mile to ensure that the team delivers high-quality work. I would highly recommend him to any team.'
+        feedback: 'Stanley\'s ability to translate design concepts into seamless, functional experiences was exceptional. His attention to detail, communication skills, and willingness to iterate made him an invaluable partner in our product development process.'
     },
 ];
 
