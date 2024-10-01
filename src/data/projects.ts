@@ -20,13 +20,53 @@ const tailwind: Tech = {name: 'tailwind', badgeColor: '#38BDF8'};
 const firebase: Tech = {name: 'firebase', badgeColor: '#fbbf24'};
 const supabase: Tech = {name: 'supabase', badgeColor: '#84BA64'};
 const web3: Tech = {name: 'web3', badgeColor: '#10a37f'};
+const docker: Tech = {name: 'docker', badgeColor: '#0468d7'};
+const aws: Tech = {name: 'aws', badgeColor: '#fb923c'};
 
 type ProjectLink = {
-    name: 'github' | 'web' | 'appstore' | 'playstore';
+    name: 'github' | 'web' | 'iOS' | 'android';
     url: string;
 };
 
 export const projects: Project[] = [
+    {
+        name: 'FeastPass',
+        description: 'FeastPass is the most flexible, community engagement and rewards platform helping local vendors boost in-store sales by engaging customers through experiences, content, and discounts.',
+        technologies: [nextjs, reactnative, nodejs, docker, aws],
+        links: [
+            {
+                name: 'web',
+                url: 'https://www.feastpass.com',
+            },
+            {
+                name: 'iOS',
+                url: 'https://apps.apple.com/us/app/feastpass/id6648766795'
+            },
+            {
+                name: 'android',
+                url: 'https://play.google.com/store/apps/details?id=com.feastpass'
+            },
+        ],
+    },
+    {
+        name: 'Suki AI',
+        description: 'Your knowledge base, Back in one scroll.',
+        technologies: [reactnative, nodejs, docker],
+        links: [
+            {
+                name: 'web',
+                url: 'https://getsuki.xyz',
+            },
+            {
+                name: 'iOS',
+                url: 'https://apps.apple.com/us/app/sukiai/id6503160949'
+            },
+            {
+                name: 'android',
+                url: 'https://play.google.com/store/apps/details?id=com.sukiai'
+            },
+        ],
+    },
     {
         name: 'Flip3',
         description: 'A secure, permissionless and incentivised Peer-to-Peer crypto to fiat platform.',
@@ -37,23 +77,12 @@ export const projects: Project[] = [
                 url: 'https://flip3.xyz',
             },
             {
-                name: 'playstore',
+                name: 'android',
                 url: 'https://play.google.com/store/apps/details?id=xyz.flip3'
             },
             {
-                name: 'appstore',
+                name: 'iOS',
                 url: 'https://apps.apple.com/us/app/flip3/id6503160949'
-            },
-        ],
-    },
-    {
-        name: 'Feastpass',
-        description: 'FeastPass is the most flexible, community engagement and rewards platform helping local vendors boost in-store sales by engaging customers through experiences, content, and discounts.',
-        technologies: [nextjs, reactnative, nodejs],
-        links: [
-            {
-                name: 'web',
-                url: 'https://www.feastpasshq.com',
             },
         ],
     },
@@ -63,7 +92,7 @@ export const projects: Project[] = [
         technologies: [flutter],
         links: [
             {
-                name: 'playstore',
+                name: 'android',
                 url: 'https://play.google.com/store/apps/details?id=com.app.expense_bud',
             },
             {

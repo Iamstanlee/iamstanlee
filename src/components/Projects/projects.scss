@@ -19,7 +19,7 @@
     }
 
     .project_container .project {
-        margin-bottom: 24px;
+        margin-bottom: 36px;
         .title {
             margin: 0;
             font-size: var(--normal-font);
@@ -43,13 +43,13 @@
 
         .description {
             display: block;
-            color: #777778;
+            color:#8c8c8c;
             padding: 0;
 
             p {
                 margin: 2px 0;
                 width: 100%;
-                color:  #777778;
+                color: #8c8c8c;
                 font-size: 14px;
                 display: flex;
                 span {

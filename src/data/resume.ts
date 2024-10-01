@@ -25,23 +25,62 @@ export type Language = {
     level: string;
 };
 
+export type Recommendation = {
+    user: Recommender;
+    feedback: string;
+};
+
+type Recommender = {
+    name: string;
+    role: string;
+    profilePicUrl: string;
+    linkedInUrl: string;
+}
+
+type Tagline = {
+    icon: string;
+    title: string;
+    text: string;
+}
+
+
 export interface Resume {
     name: string;
     title: string;
     intro: string;
+    taglines?: Tagline[];
     workExperiences: WorkExperience[];
     skills: Skill[];
     educations: Education[];
     languages: Language[];
     hobbies: string[];
+    recommendations?: Recommendation[];
 }
 
 const name = 'Stanley Akpama';
 
-const title = 'Software Engineer';
+const title = 'Fullstack Software Engineer';
 
 const intro =
-    "I'm a software engineer proficient in mobile, frontend and blockchain development. I have 4 years professional expertise in Software Development, with a solid background in computer engineering and a diverse industry experience.";
+    "Seasoned full-stack software engineer with 5+ years of expertise, designing and developing scalable, high-performance products that drive business growth.";
+
+const taglines: Tagline[] = [
+    {
+        icon: 'fa-rocket',
+        title: 'Outcome & Product Driven',
+        text: 'I make sure my work drives value for users and businesses.',
+    },
+    {
+        icon: 'fa-check',
+        title: 'Gets shit done',
+        text: 'I am adept at meeting tight deadlines and delivering high-quality results.',
+    },
+    {
+        icon: 'fa-users',
+        title: 'Team Player',
+        text: 'I thrive in collaborative environments, working effectively with stakeholders.',
+    }
+]
 
 const workExperiences: WorkExperience[] = [
     {
@@ -102,7 +141,7 @@ const workExperiences: WorkExperience[] = [
 const skills: Skill[] = [
     {
         title: 'Languages',
-        body: ['Dart', 'Swift', 'Javascript & Typescript', 'Solidity'],
+        body: ['Javascript/Typescript', 'Dart', 'Swift', 'Solidity'],
     },
     {
         title: 'Mobile',
@@ -110,15 +149,15 @@ const skills: Skill[] = [
     },
     {
         title: 'Frontend',
-        body: ['HTML/CSS', 'Reactjs', 'Nextjs', 'Tailwind', 'Ethers.js'],
+        body: ['HTML/CSS', 'Reactjs', 'Nextjs', 'Ethers.js'],
     },
     {
         title: 'Tooling',
-        body: ['Xcode', 'Android studio', 'Git', 'Github action', 'Bitrise', 'Codemagic', 'Hardhat', 'Foundry'],
+        body: ['Xcode', 'Android studio', 'Git/Github', 'Bitrise', 'Codemagic', 'Fastlane', 'Hardhat', 'Foundry'],
     },
     {
         title: 'Others',
-        body: ['NodeJS', 'Graphql', 'Firebase', 'Ethereum'],
+        body: ['NodeJS', 'Docker', 'Postgresql', 'Graphql', 'Firebase', 'Supabase', 'Ethereum'],
     },
 ];
 
@@ -128,6 +167,8 @@ const educations: Education[] = [
         startDate: 'JAN 2018',
         endDate: 'JAN 2022',
         relevant: [
+            'Software Engineering',
+            'Computer Networks',
             'Introduction to Computing',
             'Data Structures and Algorithms',
             'Object Oriented Programming',
@@ -150,13 +191,36 @@ const languages: Language[] = [
 
 const hobbies = ['Music', 'Gaming'];
 
+const recommendations: Recommendation[] = [
+    {
+        user: {
+            name: 'Adie Akuffo-Afful',
+            role: 'CEO at FeastPass',
+            profilePicUrl: 'https://media.licdn.com/dms/image/v2/D5603AQEXNYAUT3MqOA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689953388636?e=1733356800&v=beta&t=-xmmJLBK4mTkJPMGbG-1ZAqGwJZxnwXXumIXX_hXSJ8',
+            linkedInUrl: 'https://linkedin.com/in/adieakuffo'
+        },
+        feedback: 'Stanley is a highly skilled software engineer with a keen eye for detail. He is a great team player and always goes the extra mile to ensure that the team delivers high-quality work. He is a great asset to any team.'
+    },
+    {
+        user: {
+            name: 'Jeffrey Adu-Donkor',
+            role: 'Product Designer',
+            profilePicUrl: 'https://media.licdn.com/dms/image/v2/C5603AQHryX9NBKmBJw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1631462939202?e=1733356800&v=beta&t=Zen1pJl3qjpF2kJBBKj3Z-bxJVljcrLSj_QPHXW6vak',
+            linkedInUrl: 'https://linkedin.com/in/jeffreyafrane'
+        },
+        feedback: 'I worked with Stanley on a project at FeastPass. He is a very talented engineer who is always willing to help out his team members. He is very knowledgeable and always goes the extra mile to ensure that the team delivers high-quality work. I would highly recommend him to any team.'
+    },
+];
+
 export const resume: Resume = {
     name,
     title,
     intro,
+    taglines,
     workExperiences,
     skills,
     educations,
     languages,
     hobbies,
+    recommendations
 };
