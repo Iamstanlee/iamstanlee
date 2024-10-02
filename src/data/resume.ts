@@ -199,7 +199,7 @@ const recommendations: Recommendation[] = [
             profilePicUrl: 'https://media.licdn.com/dms/image/v2/D5603AQEXNYAUT3MqOA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689953388636?e=1733356800&v=beta&t=-xmmJLBK4mTkJPMGbG-1ZAqGwJZxnwXXumIXX_hXSJ8',
             linkedInUrl: 'https://linkedin.com/in/adieakuffo'
         },
-        feedback: 'Stanley is a highly skilled software engineer with a keen eye for detail. He is a great team player and always goes the extra mile to ensure that the team delivers high-quality work. He is a great asset to any team.'
+        feedback: 'I\'ve worked with Stanley for the last 5 months, having witnessed his talent rise to a leader who was instrumental throughout our product development. During our project, he took initiative on many team tasks and was pivotal in hitting their deadlines. His product analysis was spot on. Stanley\'s personability, drive, and product development skills make him an amazing addition to any team.'
     },
     {
         user: {
