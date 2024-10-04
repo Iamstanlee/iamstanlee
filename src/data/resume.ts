@@ -203,6 +203,15 @@ const recommendations: Recommendation[] = [
     },
     {
         user: {
+            name: 'M. Tarık Yurt',
+            role: 'VP of Engineering at Bayzat',
+            profilePicUrl: 'https://media.licdn.com/dms/image/v2/C4E03AQHqmehTKv5JfQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1605551382120?e=1733356800&v=beta&t=2Hrzy3hkKjAnlQNO5DhY7NrxezIpgMik_8QoQuRcxUw',
+            linkedInUrl: 'https://www.linkedin.com/in/mtyurt'
+        },
+        feedback: 'We had a good time with Stanley in Bayzat during his tenure. He was part of the mobile team developing Bayzat\'s Flutter based mobile application. He is self sufficient, doesn\'t need much of a managing, he can accomplish given tasks without overseeing. His mobile development skills were on-par with Bayzat\'s multi-module complex structure.',
+    },
+    {
+        user: {
             name: 'Jeffrey Adu-Donkor',
             role: 'Product Designer',
             profilePicUrl: 'https://media.licdn.com/dms/image/v2/C5603AQHryX9NBKmBJw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1631462939202?e=1733356800&v=beta&t=Zen1pJl3qjpF2kJBBKj3Z-bxJVljcrLSj_QPHXW6vak',
