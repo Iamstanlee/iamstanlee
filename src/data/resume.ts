@@ -88,7 +88,7 @@ const workExperiences: WorkExperience[] = [
         companyUrl: 'https://www.bayzat.com/',
         role: 'Software Engineer',
         startDate: 'AUG 2022',
-        endDate: '',
+        endDate: 'MAY 2024',
         achievements: [
             'Spearheaded the implementation of a comprehensive 360-degree performance management feature, empowering employees to undergo thorough reviews and receive actionable feedback for continuous professional development.',
             'Optimized authentication flow through meticulous improvement and refactoring, while implementing Magic Link authentication to enhance user experience and drive lead generation.',
