@@ -84,6 +84,21 @@ const taglines: Tagline[] = [
 
 const workExperiences: WorkExperience[] = [
     {
+        company: 'FeastPass',
+        companyUrl: 'https://www.feastpasshq.com/',
+        role: 'Fullstack Software Engineer',
+        startDate: 'MAR 2024',
+        endDate: 'PRESENT',
+        achievements: [
+            'Led the end-to-end development of FeastPass\'s mobile and web platforms, delivering a seamless food discovery and discount experience using ReactNative, React, Next.js, and Node.js.',
+            'Architected scalable backend solutions with Node.js and Express.js, implementing RESTful APIs to power high-performance mobile and web applications.',
+            'Optimised deployment pipelines with Docker, achieving faster, reliable application releases and ensuring consistent performance across production and staging environments.',
+            'Enhanced user engagement by designing and implementing responsive, intuitive UI/UX for both mobile and web platforms, improving user retention metrics by 70%.\n' +
+            'Implemented robust application performance monitoring and logging systems using Sentry & Betterstack, enabling proactive issue detection, reducing downtime by 99%, and ensuring a smooth user experience.',
+            'Collaborated with cross-functional teams to deliver A/B testing, feature rollouts, and bug fixes, ensuring high-quality releases and improving customer satisfaction ratings by 30%.',
+        ],
+    },
+    {
         company: 'Bayzat',
         companyUrl: 'https://www.bayzat.com/',
         role: 'Software Engineer',
@@ -199,7 +214,7 @@ const recommendations: Recommendation[] = [
             profilePicUrl: 'https://media.licdn.com/dms/image/v2/D5603AQEXNYAUT3MqOA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689953388636?e=1733356800&v=beta&t=-xmmJLBK4mTkJPMGbG-1ZAqGwJZxnwXXumIXX_hXSJ8',
             linkedInUrl: 'https://linkedin.com/in/adieakuffo'
         },
-        feedback: 'I\'ve worked with Stanley for the last 5 months, having witnessed his talent rise to a leader who was instrumental throughout our product development. During our project, he took initiative on many team tasks and was pivotal in hitting their deadlines. His product analysis was spot on. Stanley\'s personability, drive, and product development skills make him an amazing addition to any team.'
+        feedback: 'I\'ve worked with Stanley for the last 7 months, having witnessed his talent rise to a leader who was instrumental throughout our product development. During our project, he took initiative on many team tasks and was pivotal in hitting their deadlines. His product analysis was spot on. Stanley\'s personability, drive, and product development skills make him an amazing addition to any team.'
     },
     {
         user: {
