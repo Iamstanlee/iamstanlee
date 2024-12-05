@@ -67,8 +67,8 @@ export default function Base({menu}: any) {
                         <i className="fab fa-linkedin"></i> LinkedIn <img src={arrow} alt="pointer"/>
                     </a>
 
-                    <a href="https://twitter.com/iamstanlee_" target="_blank" rel="noopener noreferrer">
-                        <i className="fab fa-twitter"></i> Twitter <img src={arrow} alt="pointer"/>
+                    <a href="mailto:hey@stanlee.dev" target="_blank" rel="noopener noreferrer">
+                        <i className="fas fa-envelope"></i> Email <img src={arrow} alt="pointer"/>
                     </a>
                 </div>
             </div>

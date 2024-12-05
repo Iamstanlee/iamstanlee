@@ -30,7 +30,7 @@ export default function Header() {
               </li>
               <li>
                 <Link to="/resume" onClick={toggleMenu}>
-                  Résumé
+                  Resume
                 </Link>
               </li>
               <li>
@@ -41,10 +41,6 @@ export default function Header() {
             </ul>
 
             <div className="social_box">
-              <h3>Connect With Me</h3>
-              <a href="mailto:hey@stanleee.me" className="mt-4">
-                hey@stanleee.me
-              </a>
               <SocialIconsList cn="social_icons" />
             </div>
           </div>

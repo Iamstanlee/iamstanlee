@@ -1,7 +1,6 @@
 import {resume} from '~/data/resume';
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import Helmet from '../Common/SEO/helmet';
 import './resume.scss';
 
 interface ResumeProp {
@@ -16,11 +15,6 @@ export default function Resume(props: ResumeProp) {
 
     return (
         <div className="resume">
-            <Helmet
-                title="Stanley Akpama | Resume"
-                name="Stanley Akpama | Fullstack Software Engineer | Fullstack Developer"
-                content="Stanley Akpama | Fullstack Software Engineer | Fullstack Developer"
-            />
             <div className="resume_container">
                 <div className="top_row">
                     <h2>{resume.name}</h2>

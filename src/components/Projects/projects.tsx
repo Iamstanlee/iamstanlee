@@ -1,7 +1,6 @@
 import {projects} from '~/data/projects';
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import Helmet from '../Common/SEO/helmet';
 
 import './projects.scss';
 
@@ -17,8 +16,6 @@ export default function Projects(props: ProjectsProps) {
 
     return (
         <div className="project">
-            <Helmet title="Stanley Akpama | Projects" name="Projects"
-                    content="Selected Stanley Akpama's Projects"/>{' '}
             <div className="projects_container">
                 <div className="project_container">
                     {projects.map((project, idx) => (
