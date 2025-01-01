@@ -1,4 +1,4 @@
-import {resume} from '~/data/resume';
+import {resume} from '../../data/resume';
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import './resume.scss';
@@ -54,7 +54,7 @@ export default function Resume(props: ResumeProp) {
                     {resume.recommendations?.map((recommendation) => <section className="recommendation">
                         "<span>{recommendation.feedback}</span>"
                         <div className="profile">
-                            <img src={recommendation.user.profilePicUrl} alt='Photo'/>
+                            <img src={(recommendation.user.profilePicUrl)} alt='Photo'/>
                             <div>
                                 <a href={recommendation.user.linkedInUrl} target="_blank">
                                     {recommendation.user.name}

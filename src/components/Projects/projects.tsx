@@ -1,4 +1,4 @@
-import {projects} from '~/data/projects';
+import {projects} from '../../data/projects';
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 

@@ -211,7 +211,7 @@ const recommendations: Recommendation[] = [
         user: {
             name: 'Adie Akuffo-Afful',
             role: 'CEO at FeastPass',
-            profilePicUrl: 'https://media.licdn.com/dms/image/v2/D5603AQEXNYAUT3MqOA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689953388636?e=1733356800&v=beta&t=-xmmJLBK4mTkJPMGbG-1ZAqGwJZxnwXXumIXX_hXSJ8',
+            profilePicUrl: '/review1.png',
             linkedInUrl: 'https://linkedin.com/in/adieakuffo'
         },
         feedback: 'I\'ve worked with Stanley for the last 7 months, having witnessed his talent rise to a leader who was instrumental throughout our product development. During our project, he took initiative on many team tasks and was pivotal in hitting their deadlines. His product analysis was spot on. Stanley\'s personability, drive, and product development skills make him an amazing addition to any team.'
@@ -220,7 +220,7 @@ const recommendations: Recommendation[] = [
         user: {
             name: 'M. Tarık Yurt',
             role: 'VP of Engineering at Bayzat',
-            profilePicUrl: 'https://media.licdn.com/dms/image/v2/C4E03AQHqmehTKv5JfQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1605551382120?e=1733356800&v=beta&t=2Hrzy3hkKjAnlQNO5DhY7NrxezIpgMik_8QoQuRcxUw',
+            profilePicUrl: '/review2.png',
             linkedInUrl: 'https://www.linkedin.com/in/mtyurt'
         },
         feedback: 'We had a good time with Stanley in Bayzat during his tenure. He was part of the mobile team developing Bayzat\'s Flutter based mobile application. He is self sufficient, doesn\'t need much of a managing, he can accomplish given tasks without overseeing. His mobile development skills were on-par with Bayzat\'s multi-module complex structure.',
@@ -229,7 +229,7 @@ const recommendations: Recommendation[] = [
         user: {
             name: 'Jeffrey Adu-Donkor',
             role: 'Product Designer',
-            profilePicUrl: 'https://media.licdn.com/dms/image/v2/C5603AQHryX9NBKmBJw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1631462939202?e=1733356800&v=beta&t=Zen1pJl3qjpF2kJBBKj3Z-bxJVljcrLSj_QPHXW6vak',
+            profilePicUrl: '/review3.png',
             linkedInUrl: 'https://linkedin.com/in/jeffreyafrane'
         },
         feedback: 'Stanley\'s ability to translate design concepts into seamless, functional experiences was exceptional. His attention to detail, communication skills, and willingness to iterate made him an invaluable partner in our product development process.'
