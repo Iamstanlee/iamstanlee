@@ -13,7 +13,7 @@ export default function Base({menu}: any) {
                         Hello! I'm <br/> Stanley.
                     </h1>
                     <div className="profile_pic">
-                        <img className="w-48 h-48 rounded-full " src="/icons/apple-touch-icon.png" alt="my-avatar"/>
+                        <img className="w-48 h-48 rounded-full " src="/icons/icon-512-maskable.png" alt="my-avatar"/>
                     </div>
                 </div>
 
