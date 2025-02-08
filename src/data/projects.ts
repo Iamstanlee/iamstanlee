@@ -10,13 +10,13 @@ type Tech = {
     badgeColor: string;
 }
 
-const flutter: Tech = {name: 'flutter', badgeColor: '#0468d7'};
-const nextjs: Tech = {name: 'nextjs', badgeColor: '#0a0a0a'};
-const nodejs: Tech = {name: 'nodejs', badgeColor: '#84BA64'};
-const reactnative: Tech = {name: 'reactnative', badgeColor: '#61dafb'};
-const web3: Tech = {name: 'web3', badgeColor: '#10a37f'};
-const docker: Tech = {name: 'docker', badgeColor: '#0468d7'};
-const aws: Tech = {name: 'aws', badgeColor: '#fb923c'};
+const flutter: Tech = {name: 'Flutter', badgeColor: '#0468d7'};
+const nextjs: Tech = {name: 'Nextjs', badgeColor: '#0a0a0a'};
+const nodejs: Tech = {name: 'Nodejs', badgeColor: '#84BA64'};
+const reactnative: Tech = {name: 'ReactNative', badgeColor: '#61dafb'};
+const web3: Tech = {name: 'Web3', badgeColor: '#10a37f'};
+const docker: Tech = {name: 'Docker', badgeColor: '#0468d7'};
+const aws: Tech = {name: 'AWS', badgeColor: '#fb923c'};
 
 type ProjectLink = {
     name: 'github' | 'web' | 'iOS' | 'android';
@@ -62,17 +62,6 @@ export const projects: Project[] = [
         ],
     },
     {
-        name: 'ArtiSyn',
-        description: 'The fine art Techstack, web app that helps artists and art lovers discover, share, and sell their art.',
-        technologies: [nextjs],
-        links: [
-            {
-                name: 'web',
-                url: 'https://artisan.com',
-            },
-        ],
-    },
-    {
         name: 'Expense Bud',
         description: 'Empowers users to track expenses and gain detailed insights, fostering better financial control and decision-making.',
         technologies: [flutter],
@@ -84,6 +73,17 @@ export const projects: Project[] = [
             {
                 name: 'github',
                 url: 'https://github.com/iamstanlee/expense_bud',
+            },
+        ],
+    },
+    {
+        name: 'ArtiSyn',
+        description: 'The fine art Techstack, web app that helps artists and art lovers discover, share, and sell their art.',
+        technologies: [nextjs],
+        links: [
+            {
+                name: 'web',
+                url: 'https://artisan.com',
             },
         ],
     },

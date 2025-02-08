@@ -7,13 +7,12 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: #101010;
-  color: #fff;
+  background: #f8f8f8;
+  color: #f8f8f8;
 }
 
-h1, h2, h3, h4, h5, h6, p, a {
-  font-family: var(--font-regular);
-  color: #fff;
+h1, h2, h3, h4, h5, h6, p, a, span, small {
+  font-family: var(--font-regular), serif;
 }
 
 #root {
@@ -51,12 +50,12 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 
 .main::-webkit-scrollbar-track {
-  background: #101011;
+  background: #f8f8f8;
 }
 
 
 .main::-webkit-scrollbar-thumb {
-  background: #101011;
+  background: #f8f8f8;
 }
 
 .main::-webkit-scrollbar-thumb:hover {

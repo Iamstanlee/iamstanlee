@@ -1,4 +1,4 @@
-import {resume} from '../../data/resume';
+import {resume} from '~/data/resume';
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import './resume.scss';
@@ -39,7 +39,7 @@ export default function Resume(props: ResumeProp) {
                             <i className={`fas ${tagline.icon}`}></i>
                             <div>
                                 <h5>{tagline.title}</h5>
-                                <span>{tagline.text}</span>
+                                <small>{tagline.text}</small>
                             </div>
                         </div>
                     ))}
@@ -52,7 +52,6 @@ export default function Resume(props: ResumeProp) {
 
                 <div>
                     {resume.recommendations?.map((recommendation) => <section className="recommendation">
-                        "<span>{recommendation.feedback}</span>"
                         <div className="profile">
                             <img src={(recommendation.user.profilePicUrl)} alt='Photo'/>
                             <div>
@@ -60,9 +59,14 @@ export default function Resume(props: ResumeProp) {
                                     {recommendation.user.name}
                                     <i className="fab fa-linkedin pl-2 mt-1"></i>
                                 </a>
-                                <span>{recommendation.user.role}</span>
+                                <small>{recommendation.user.role}</small>
                             </div>
                         </div>
+                        <p>
+                            <span className="font-bold text-black">"</span>
+                            {recommendation.feedback}
+                            <span className="font-bold text-black">"</span>
+                        </p>
                     </section>)}
                 </div>
 
@@ -75,7 +79,7 @@ export default function Resume(props: ResumeProp) {
                 <div className="skills">
                     {resume.skills.map((skill, idx) => (
                         <p key={`skill-${idx}`}>
-                            <span className="pr-2 text-white">{skill.title}: </span> {skill.body.join(', ')}
+                            <span className="pr-2 text-black">{skill.title}: </span> {skill.body.join(', ')}
                         </p>
                     ))}
                 </div>
@@ -85,15 +89,15 @@ export default function Resume(props: ResumeProp) {
                     <span></span>
                 </div>
 
-                <div className="exp_container">
+                <div className="default_container">
                     {resume.workExperiences.map((experience, idx) => (
-                        <section className="experience" key={idx}>
+                        <section key={idx}>
                             <p className="title">
                                 <a href={experience.companyUrl}
                                    target="_blank">{experience.company}</a> - {experience.role}
                                 <span>
-                  <br/> {experience.startDate} - {experience.endDate ? experience.endDate : 'PRESENT'}
-                </span>
+                              {experience.startDate} - {experience.endDate ? experience.endDate : 'PRESENT'}
+                            </span>
                             </p>
                             <article className="description">
                                 {experience.jobDescription && <p>{experience.jobDescription}</p>}
@@ -113,19 +117,18 @@ export default function Resume(props: ResumeProp) {
                     <span></span>
                 </div>
 
-                <div className="exp_container">
-                    <section className="experience">
+                <div className="default_container">
+                    <section>
                         {resume.educations.map((education, idx) => (
-                            <p key={`education-${idx}`} className="title">
-                                {education.title}
-                                <br/>
-                                <span>
-                  {education.startDate} - {education.endDate}
-                </span>
-                                <br/>
-                                <span
-                                    style={{fontSize: 13}}>{`— Relevant coursework: ${education.relevant.join(', ')}`}</span>
-                            </p>
+                            <>
+                                <p key={`education-${idx}`} className="title">
+                                    {education.title}
+                                    <span> {education.startDate} - {education.endDate}</span>
+                                </p>
+                                <article className="description">
+                                    <p>{`— Relevant coursework: ${education.relevant.join(', ')}`}</p>
+                                </article>
+                            </>
                         ))}
                     </section>
                 </div>

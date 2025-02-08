@@ -1,76 +1,80 @@
 .projects_container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  padding: 5%;
+
+  .top_row {
     display: flex;
-    flex-direction: column;
-    background-color: #16161A;
-    padding: 5%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
 
-    .top_row {
+    h2 {
+      font-size: var(--h2-font);
+      line-height: 47px;
+      margin: 0;
+    }
+
+  }
+
+  .project_container .project {
+    margin-bottom: 36px;
+    color: #000;
+
+    .title {
+      margin: 0;
+      font-size: var(--normal-font);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      p {
+        line-height: 2;
+      }
+    }
+
+    a {
+      color: #000
+    }
+
+    .project_link {
+      font-size: 13px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .description {
+      display: block;
+      color: #888888;
+      padding: 0;
+
+      p {
+        margin: 2px 0;
+        width: 100%;
+        color: #888888;
+        font-size: 14px;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 24px;
 
-        h2 {
-            font-size: var(--h2-font);
-            line-height: 47px;
-            margin: 0;
+        span {
+          margin-right: 5px;
         }
-
+      }
     }
-
-    .project_container .project {
-        margin-bottom: 36px;
-        .title {
-            margin: 0;
-            font-size: var(--normal-font);
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            p {
-              line-height: 2;
-            }
-        }
-
-        a {
-            color: #fff
-        }
-
-        .project_link {
-            font-size: 13px;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .description {
-            display: block;
-            color:#8c8c8c;
-            padding: 0;
-
-            p {
-                margin: 2px 0;
-                width: 100%;
-                color: #8c8c8c;
-                font-size: 14px;
-                display: flex;
-                span {
-                    margin-right: 5px;
-                }
-            }
-        }
-    }
+  }
 }
 
 .project .go_button_container {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 993px) {
-.projects_container {
+  .projects_container {
     margin: 30px 0;
-}
+  }
 
-.project .go_button_container {
+  .project .go_button_container {
     display: flex;
     margin-bottom: 20px;
-    }
+  }
 }

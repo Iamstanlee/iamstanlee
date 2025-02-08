@@ -59,10 +59,9 @@ export interface Resume {
 
 const name = 'Stanley Akpama';
 
-const title = 'Fullstack Software Engineer';
+const title = 'Software Engineer';
 
-const intro =
-    "Seasoned full-stack software engineer with 5+ years of expertise, designing and developing scalable, high-performance products that drive business growth.";
+const intro = "Experienced full-stack software engineer with 5+ years of expertise in designing and developing scalable, high-performance products that drive business growth and deliver exceptional user experiences.";
 
 const taglines: Tagline[] = [
     {
@@ -86,9 +85,9 @@ const workExperiences: WorkExperience[] = [
     {
         company: 'FeastPass',
         companyUrl: 'https://www.feastpasshq.com/',
-        role: 'Fullstack Software Engineer',
+        role: 'Software Engineer',
         startDate: 'MAR 2024',
-        endDate: 'PRESENT',
+        endDate: 'FEB 2025',
         achievements: [
             'Led the end-to-end development of FeastPass\'s mobile and web platforms, delivering a seamless food discovery and discount experience using ReactNative, React, Next.js, and Node.js.',
             'Architected scalable backend solutions with Node.js and Express.js, implementing RESTful APIs to power high-performance mobile and web applications.',
@@ -168,11 +167,11 @@ const skills: Skill[] = [
     },
     {
         title: 'Tooling',
-        body: ['Xcode', 'Android studio', 'Git/Github', 'Bitrise', 'Codemagic', 'Fastlane', 'Hardhat', 'Foundry'],
+        body: ['Xcode', 'Android studio', 'Git/Github', 'Codemagic', 'Fastlane', 'Hardhat', 'Foundry'],
     },
     {
         title: 'Others',
-        body: ['NodeJS', 'Docker', 'Postgresql', 'Graphql', 'Firebase', 'Supabase', 'Ethereum'],
+        body: ['NodeJS', 'Docker', 'Postgresql', 'Graphql', 'Firebase', 'Ethereum'],
     },
 ];
 

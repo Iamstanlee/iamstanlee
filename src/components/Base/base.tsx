@@ -19,16 +19,22 @@ export default function Base({menu}: any) {
 
                 <div className="description">
                     <p>
-            <span>
-              I'm a <span style={{textDecoration: 'line-through', color: '#ffffff', opacity: 0.7}}>Software</span>
-              <span className="highlight"> Product Engineer</span>. I'm keen on building the future of money, work and innovative tools.
-            </span>
+                        <span>
+                          I'm a <span style={{
+                                textDecoration: 'line-through',
+                                color: '#000',
+                                opacity: 0.7,
+                                fontStyle: 'italic'
+                            }}>Software</span>
+                            <span className="highlight font-bold"> Product Engineer</span> and a <span
+                            style={{color: '#000'}} className="italic font-bold">Builder</span> at heart.
+                        </span>
                     </p>
                 </div>
 
                 <div className="go_button_container">
                     <Link to="/resume">
-                        <button className="explore">Explore ➜</button>
+                        <button className="explore">Get to know me ➜</button>
                     </Link>
                 </div>
             </div>

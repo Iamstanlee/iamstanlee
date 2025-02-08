@@ -1,6 +1,7 @@
 .base_container {
+  background-color: #f8f8f8;
+  color: #000;
   padding: 8% 5% 8% 15%;
-  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,6 +20,7 @@
     margin-right: 15px;
     margin-top: 0;
     margin-bottom: 0;
+    color: #000;
   }
 
   .profile_pic {
@@ -35,19 +37,19 @@
     font-style: normal;
     font-weight: normal;
     line-height: 2;
-    color: #ffffff;
+    color: #000;
     margin: 0;
 
     span {
-      color:#8c8c8c;
+      color: #101010;
     }
 
     span.highlight {
-      color: #fff;
+      color: #000;
     }
 
     a {
-      color: #fff;
+      color: #000;
       text-decoration: none;
     }
   }
@@ -76,7 +78,7 @@ nav {
     width: fit-content;
     margin: 10px 0;
     padding: 0;
-    color:#8c8c8c;
+    color: #000;
   }
 
   ul li small {
@@ -104,7 +106,8 @@ nav {
   ul li.active_menu {
     opacity: 1;
     transition: all 0.3s linear;
-    color: #fff;
+    color: #000;
+    font-weight: bold;
   }
 
   ul li.active_menu a img {
@@ -117,7 +120,7 @@ nav {
   ul li:hover {
     opacity: 1;
     transition: all 0.3s linear;
-    color: #fff;
+    color: #000;
   }
 
   ul li:hover a img {
@@ -131,7 +134,6 @@ nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  /* flex-direction: column; */
 
   img {
     margin-right: 15px;
@@ -154,36 +156,13 @@ nav {
 
   .social a i {
     margin-right: 10px;
-    color: grey;
+    color: #101010;
   }
 
   .social a img {
     width: 40%;
     margin-left: 2px;
     height: 80%;
-  }
-}
-
-.credits {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 1rem 0 0;
-
-  p {
-    font-size: var(--xsmall-font) !important;
-    color:#8c8c8c;
-  }
-
-  p:first-child {
-    margin-right: 0.8rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: #cecece;
-    margin-left: 5px;
   }
 }
 

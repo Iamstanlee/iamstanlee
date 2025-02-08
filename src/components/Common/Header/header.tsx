@@ -25,7 +25,7 @@ export default function Header() {
             <ul>
               <li>
                 <Link to="/" onClick={toggleMenu}>
-                  Home
+                  Profile
                 </Link>
               </li>
               <li>
@@ -41,7 +41,7 @@ export default function Header() {
             </ul>
 
             <div className="social_box">
-              <SocialIconsList cn="social_icons" />
+              <SocialIconsList cn="social_buttons"/>
             </div>
           </div>
         </nav>

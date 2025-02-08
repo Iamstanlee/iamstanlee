@@ -1,7 +1,8 @@
 .resume_container {
   display: flex;
   flex-direction: column;
-  background-color: #16161A;
+  background-color: #f8f8f8;
+  color: #000000;
   padding: 5%;
 
   .top_row {
@@ -13,6 +14,7 @@
       font-size: var(--h2-font);
       line-height: 47px;
       margin: 0;
+      color: #000000;
     }
 
     .buttons {
@@ -38,18 +40,15 @@
 
     h5 {
       font-size: 14px;
-      color: #ffffff;
+      color: #000000;
       display: flex;
       margin: 0;
       line-height: 2;
     }
 
-    i {
-    }
-
-    span {
+    small {
       font-size: 14px;
-      color: #8c8c8c;
+      color: #888888;
       display: flex;
       margin: 0;
       line-height: 1.2;
@@ -62,29 +61,31 @@
     .profile {
       display: flex;
       flex-direction: row;
-      margin-top: 10px;
+      margin-bottom: 10px;
       gap: 10px;
     }
 
     .profile div {
       display: flex;
       flex-direction: column;
+      color: #888888;
+
     }
 
     .profile a {
-      color: #fff;
+      color: #000;
       font-size: 14px;
       text-decoration: underline;
     }
 
     .profile span {
       font-size: 12px;
-      color: #8c8c8c;
+      color: #888888;
     }
 
-    span {
-      font-size: 15px;
-      color: #8c8c8c;
+    p {
+      font-size: 14px;
+      color: #888888;
     }
 
     img {
@@ -96,7 +97,7 @@
 
   .subheading {
     margin: 6px 0;
-    color: #cfcfcf;
+    color: #000000;
     font-size: var(--semi-font);
   }
 
@@ -106,7 +107,7 @@
 
     p {
       line-height: 1.5;
-      color: #8c8c8c;
+      color: #888888;
       font-size: 14.5px;
     }
   }
@@ -120,52 +121,50 @@
     p {
       margin: 0 10px 0 0;
       font-size: var(--normal-font);
-      color: #e2e2e2;
+      color: #000000;
     }
 
     span {
       flex-grow: 1;
       height: 1px;
-      background-color: #8c8c8c;
+      background-color: #888888;
     }
   }
 
   .skills p {
     font-size: 14px;
-    color: #8c8c8c;
+    color: #888888;
     display: flex;
     margin: 0;
     line-height: 2;
   }
 
-  .exp_container .experience {
+  .default_container section {
     .title {
       margin: 0;
       font-size: var(--normal-font);
       line-height: 2;
+      color: #000;
 
       span {
         font-size: 12px;
-        color: #8c8c8c;
+        color: #888888;
         margin-left: 5px;
+        font-style: italic;
       }
-    }
-
-    a {
-      color: #fff
     }
 
     .description {
       display: block;
       line-height: 1.5;
-      color: #8c8c8c;
+      color: #888888;
       margin: 10px 0;
       padding: 0;
 
       p {
         margin: 2px 0;
         width: 100%;
-        color: #8c8c8c;
+        color: #888888;
         font-size: 14px;
         display: flex;
 

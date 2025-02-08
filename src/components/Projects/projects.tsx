@@ -1,4 +1,4 @@
-import {projects} from '../../data/projects';
+import {projects} from '~/data/projects';
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
@@ -28,8 +28,7 @@ export default function Projects(props: ProjectsProps) {
                                     <span
                                         style={{
                                             fontSize: 12,
-                                            color: '#bdbdbd'
-                                            // color: '#bdbdbd'
+                                            color: '#888888',
                                         }}>{project.technologies.map(t => t.name).join(", ")}</span>
                                 </div>
                             </div>
