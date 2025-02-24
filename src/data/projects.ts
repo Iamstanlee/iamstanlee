@@ -11,6 +11,7 @@ type Tech = {
 }
 
 const flutter: Tech = {name: 'Flutter', badgeColor: '#0468d7'};
+const react: Tech = {name: 'React', badgeColor: '#0a0a0a'};
 const nextjs: Tech = {name: 'Nextjs', badgeColor: '#0a0a0a'};
 const nodejs: Tech = {name: 'Nodejs', badgeColor: '#84BA64'};
 const reactnative: Tech = {name: 'ReactNative', badgeColor: '#61dafb'};
@@ -42,7 +43,19 @@ export const projects: Project[] = [
                 url: 'https://apps.apple.com/us/app/flipcoin/id6503160949'
             },
         ],
-    }, {
+    },
+    {
+        name: 'Relett Manager',
+        description: 'Seamless Property Management Platform for African Entrepreneurs.',
+        technologies: [react, nodejs],
+        links: [
+            {
+                name: 'web',
+                url: 'https://manage.relett.com',
+            },
+        ],
+    },
+    {
         name: 'FeastPass',
         description: 'Most flexible, community engagement and rewards platform helping local vendors boost in-store sales by engaging customers through experiences, content, and discounts.',
         technologies: [nextjs, reactnative, nodejs, docker, aws],
