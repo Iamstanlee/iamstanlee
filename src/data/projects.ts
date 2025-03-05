@@ -80,10 +80,6 @@ export const projects: Project[] = [
         technologies: [flutter],
         links: [
             {
-                name: 'android',
-                url: 'https://play.google.com/store/apps/details?id=com.app.expense_bud',
-            },
-            {
                 name: 'github',
                 url: 'https://github.com/iamstanlee/expense_bud',
             },
@@ -96,7 +92,7 @@ export const projects: Project[] = [
         links: [
             {
                 name: 'web',
-                url: 'https://artisan.com',
+                url: 'https://www.artisyn.xyz',
             },
         ],
     },
