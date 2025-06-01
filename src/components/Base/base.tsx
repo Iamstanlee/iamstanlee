@@ -20,7 +20,7 @@ export default function Base({menu}: any) {
                 <div className="description">
                     <p>
                         <span>
-                          I'm a <span style={{
+                          I'm a Senior <span style={{
                                 textDecoration: 'line-through',
                                 color: '#000',
                                 opacity: 0.7,
