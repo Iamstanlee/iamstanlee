@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SocialIconsList from '../socialIconsList';
+import arrow from '../../../assets/svgs/arrow.svg';
 import './header.scss';
 
 export default function Header() {
@@ -25,18 +26,24 @@ export default function Header() {
             <ul>
               <li>
                 <Link to="/" onClick={toggleMenu}>
-                  Profile
+                  PROFILE
                 </Link>
               </li>
               <li>
                 <Link to="/resume" onClick={toggleMenu}>
-                  Resume
+                  RESUME
                 </Link>
               </li>
               <li>
                 <Link to="/projects" onClick={toggleMenu}>
-                  Projects
+                  PROJECTS
                 </Link>
+              </li>
+              <li>
+                <a href="https://blog.stanlee.dev" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
+                  BLOG
+                </a>
+                <img className="w-4 h-4" src={arrow} alt="pointer"/>
               </li>
             </ul>
 
