@@ -83,71 +83,61 @@ const taglines: Tagline[] = [
 
 const workExperiences: WorkExperience[] = [
     {
+        company: 'Rank (YC 22)',
+        companyUrl: 'https://userank.com/',
+        role: 'Mobile Lead',
+        startDate: 'FEB 2025',
+        endDate: "PRESENT",
+        achievements: [
+            "Led the end-to-end redevelopment of Rank’s mobile app, delivering a scalable and maintainable architecture that boosted developer velocity and product stability.",
+            "Created a unified design system, improving UI consistency and reducing implementation time for new features by 30%.",
+            "Developed a dynamic, backend-driven onboarding and KYC flow, increasing verification success rates and accelerating user onboarding.",
+            "Enhanced core savings functionality, leading to a measurable uptick in active usage and retention.",
+            "Increased test coverage to 50%, reducing regression bugs and supporting a faster, more reliable release cycle.",
+            "Improved performance through strategic caching and optimized remote logging/analytics for better user issue tracking.",
+            "Authored technical documentation and onboarding guides, reducing ramp-up time for new developers by 50%."
+        ],
+    },
+    {
         company: 'FeastPass',
         companyUrl: 'https://www.feastpasshq.com/',
         role: 'Software Engineer',
         startDate: 'MAR 2024',
         endDate: 'FEB 2025',
         achievements: [
-            'Led the end-to-end development of FeastPass\'s mobile and web platforms, delivering a seamless food discovery and discount experience using ReactNative, React, Next.js, and Node.js.',
-            'Architected scalable backend solutions with Node.js and Express.js, implementing RESTful APIs to power high-performance mobile and web applications.',
-            'Optimised deployment pipelines with Docker, achieving faster, reliable application releases and ensuring consistent performance across production and staging environments.',
-            'Enhanced user engagement by designing and implementing responsive, intuitive UI/UX for both mobile and web platforms, improving user retention metrics by 70%.\n' +
-            'Implemented robust application performance monitoring and logging systems using Sentry & Betterstack, enabling proactive issue detection, reducing downtime by 99%, and ensuring a smooth user experience.',
-            'Collaborated with cross-functional teams to deliver A/B testing, feature rollouts, and bug fixes, ensuring high-quality releases and improving customer satisfaction ratings by 30%.',
+            "Built and maintained the mobile and web platforms using React Native, React, Next.js, and Node.js.",
+            "Designed scalable backend systems with Express.js and Docker, improving performance and deployment reliability.",
+            "Enhanced UI/UX across platforms, leading to a 70% improvement in user retention.",
+            "Implemented performance monitoring and logging with Sentry & Betterstack, reducing downtime by 99%.",
+            "Collaborated cross-functionally to deliver A/B tests, iterative feature rollouts, and customer-driven enhancements."
         ],
     },
     {
         company: 'Bayzat',
         companyUrl: 'https://www.bayzat.com/',
-        role: 'Software Engineer',
+        role: 'Software Engineer (Mobile/Flutter)',
         startDate: 'AUG 2022',
         endDate: 'MAY 2024',
         achievements: [
-            'Spearheaded the implementation of a comprehensive 360-degree performance management feature, empowering employees to undergo thorough reviews and receive actionable feedback for continuous professional development.',
-            'Optimized authentication flow through meticulous improvement and refactoring, while implementing Magic Link authentication to enhance user experience and drive lead generation.',
-            'Innovated and refined multiple features such as Payroll, Loan Requests, Company Surveys & Employee Engagement, and Third-party Service Integrations, which significantly elevated customer satisfaction levels.',
-            'Collaborated effectively with team members to implement a scalable architecture, best practices and 100% migration of legacy code to null-safety and modern standards. Resulting in improved performance and enhanced development experience.',
-            'Proactively resolved user-facing issues in close collaboration with the customer success team, ensuring a seamless experience for customers.',
-            'Implemented comprehensive test suites to ensure the accuracy, validity, and performance of work delivered.',
-            'Authored clear and concise documentations to facilitate knowledge sharing among fellow engineers, enabling more efficient development processes.',
+            "Led the development of a 360-degree performance management system, empowering employee feedback and professional growth.",
+            "Streamlined authentication flows, integrating Magic Link to improve UX and boost lead generation.",
+            "Developed and optimized features including Payroll, Loans, Surveys, and Third-party integrations.",
+            "Migrated legacy code to modern standards and null-safety, improving maintainability and app performance.",
+            "Partnered with support teams to troubleshoot user issues, and implemented comprehensive testing and documentation practices."
         ],
     },
     {
         company: 'OurPass',
         companyUrl: 'https://www.ourpass.co/',
-        role: 'Lead Mobile Engineer',
+        role: 'Mobile Lead',
         startDate: 'APR 2022',
         endDate: 'NOV 2022',
         achievements: [
-            'Pioneered the first successful version of the OurPass business app, empowering over 10000 businesses to seamlessly process online and offline payments.',
-            'Collaborated with a cross-functional team in the development and implementation of EMV(Europay, Mastercard, and Visa standard) card payment processing and additional value-added services for OurPass point-of-sale app.',
-            'Worked closely with product owners to identify, plan, and deliver new features, such as QR payments, point-of-sale integration, and improved onboarding and verification process.',
-            'Implemented a scalable architecture and added automated tests to improve code quality, resulting in a reduction in bug reports and customer turnover (churn rate).',
-            'Set up and managed CI/CD pipeline and deployments.',
-        ],
-    },
-    {
-        company: 'Kivifood',
-        role: 'Cofounder/Software Engineer',
-        startDate: 'APR 2021',
-        endDate: 'MAR 2022',
-        achievements: [
-            'Managed a team of 4 people and led the development of a food delivery product for merchants and customers',
-            'Developed a simple alerting system integrated with Slack which allowed us to distribute incident information to both customers and the operations team, increasing the efficiency of our day-to-day operations',
-            'Implemented an image optimization pipeline that resizes, compresses, and caching images via CDN. Which increased app performance by 67%.',
-            'Set up and managed CI/CD pipeline and deployments.',
-        ],
-    },
-    {
-        company: 'Gofast International Projects Ltd',
-        role: 'Software Developer',
-        startDate: 'JAN 2020',
-        endDate: 'OCT 2020',
-        achievements: [
-            'Rebuilt the gofast mobile payment app, Implementing a new design, payment flow and overall architecture.',
-            'Built an internal admin panel for tracking app metrics and KPIs such as Acquisition, Engagement, Payments & Transactions.',
-            'Implemented a minimal support ticketing and dispute resolution system.',
+            "Delivered the first version of the OurPass Business App, enabling over 10,000 businesses to process online and offline payments.",
+            "Developed EMV card payment processing and value-added services for the Point-of-Sale system.",
+            "Led implementation of QR payments, improved onboarding, and verification workflows.",
+            "Established scalable architecture and automated tests, cutting churn and improving code quality.",
+            "Managed CI/CD setup and deployment workflows for mobile builds."
         ],
     },
 ];
