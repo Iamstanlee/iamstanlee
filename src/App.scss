@@ -1,6 +1,5 @@
 @font-face {
-  font-family: 'AlbertSans';
-  src: url('assets/fonts/AlbertSans.ttf') format('truetype');
+  font-family: "Bricolage Grotesque", sans-serif;
 }
 
 html, body {
@@ -91,7 +90,7 @@ body {
   --normal-font: 14px;
   --small-font: 13px;
   --xsmall-font: 12px;
-  --font-regular: "AlbertSans";
+  --font-regular: "Bricolage Grotesque", sans-serif;
 }
 
 @media (min-width: 1440px) {
