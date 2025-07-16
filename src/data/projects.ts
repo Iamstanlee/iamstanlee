@@ -45,9 +45,9 @@ export const projects: Project[] = [
         ],
     },
     {
-        name: 'Relett Manager',
+        name: 'Relett',
         description: 'Seamless Property Management Platform for African Entrepreneurs.',
-        technologies: [react, nodejs],
+        technologies: [react, nextjs, nodejs],
         links: [
             {
                 name: 'web',
@@ -82,6 +82,17 @@ export const projects: Project[] = [
             {
                 name: 'github',
                 url: 'https://github.com/iamstanlee/expense_bud',
+            },
+        ],
+    },
+    {
+        name: 'Df-Blessed Apartment',
+        description: 'High-converting landing page for a short-term rental business, focusing on modern design principles and SEO optimization',
+        technologies: [nextjs],
+        links: [
+            {
+                name: 'web',
+                url: 'https://www.blessedapartments.com',
             },
         ],
     },
