@@ -86,24 +86,13 @@ export const projects: Project[] = [
         ],
     },
     {
-        name: 'Df-Blessed Apartment',
-        description: 'High-converting landing page for a short-term rental business, focusing on modern design principles and SEO optimization',
-        technologies: [nextjs],
+        name: 'Flutter Inapp inspector',
+        description: 'A mini debug app for inspecting flutter app performance, requests, and logs. Designed for QA and design teams to easily report issues directly to the appropriate development team.',
+        technologies: [flutter],
         links: [
             {
-                name: 'web',
-                url: 'https://www.blessedapartments.com',
-            },
-        ],
-    },
-    {
-        name: 'ArtiSyn',
-        description: 'The fine art Techstack, web app that helps artists and art lovers discover, share, and sell their art.',
-        technologies: [nextjs],
-        links: [
-            {
-                name: 'web',
-                url: 'https://www.artisyn.xyz',
+                name: 'github',
+                url: 'https://github.com/Iamstanlee/flutter_inapp_inspector',
             },
         ],
     },
