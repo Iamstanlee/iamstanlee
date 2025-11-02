@@ -27,7 +27,7 @@ type ProjectLink = {
 export const projects: Project[] = [
     {
         name: 'Flipcoin',
-        description: 'Instant crypto to fiat offramp platform, achieving over $50,000 in monthly total processed volume (TPV)',
+        description: 'Instant crypto to fiat offramp platform, achieving over $50,000 in total processed volume (TPV)',
         technologies: [flutter, nodejs, docker, aws, web3],
         links: [
             {
