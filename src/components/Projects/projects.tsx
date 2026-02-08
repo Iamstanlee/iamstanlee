@@ -17,6 +17,7 @@ export default function Projects(props: ProjectsProps) {
     return (
         <div className="project">
             <div className="projects_container">
+                <h3>Side projects</h3>
                 <div className="project_container">
                     {projects.map((project, idx) => (
                         <section className="project" key={idx}>
@@ -24,12 +25,10 @@ export default function Projects(props: ProjectsProps) {
                                 <p>
                                     {`0${idx} — `}{project.name}
                                 </p>
-                                <div>
-                                    <span
-                                        style={{
-                                            fontSize: 12,
-                                            color: '#888888',
-                                        }}>{project.technologies.map(t => t.name).join(", ")}</span>
+                                <div className="post_tags">
+                                    {project.technologies.map(t => (
+                                        <span key={t.name} className="tag">{t.name}</span>
+                                    ))}
                                 </div>
                             </div>
                             <article className="description">
@@ -58,6 +57,9 @@ export default function Projects(props: ProjectsProps) {
                     <button>
                         <b>➜ </b>Resume
                     </button>
+                </Link>
+                <Link to="/writings">
+                    <button>Writings ➜</button>
                 </Link>
             </div>
         </div>

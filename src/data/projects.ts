@@ -26,32 +26,13 @@ type ProjectLink = {
 
 export const projects: Project[] = [
     {
-        name: 'Flipcoin',
-        description: 'Instant crypto to fiat offramp platform, achieving over $50,000 in total processed volume (TPV)',
-        technologies: [flutter, nodejs, docker, aws, web3],
-        links: [
-            {
-                name: 'web',
-                url: 'https://useflipcoin.com',
-            },
-            {
-                name: 'android',
-                url: 'https://play.google.com/store/apps/details?id=com.flipcoin'
-            },
-            {
-                name: 'iOS',
-                url: 'https://apps.apple.com/us/app/flipcoin/id6503160949'
-            },
-        ],
-    },
-    {
         name: 'Relett',
         description: 'Seamless Property Management Platform for African Entrepreneurs.',
         technologies: [react, nextjs, nodejs],
         links: [
             {
                 name: 'web',
-                url: 'https://manage.relett.com',
+                url: 'https://v2.relett.com',
             },
         ],
     },
@@ -87,7 +68,7 @@ export const projects: Project[] = [
     },
     {
         name: 'Flutter Inapp inspector',
-        description: 'A mini debug app for inspecting flutter app performance, requests, and logs. Designed for QA and design teams to easily report issues directly to the appropriate development team.',
+        description: 'A mini debug Flutter app hooked into a host app that inspects app performance, requests, and logs in real-time. Streamlines QA and design feedback by enabling teams to report issues directly to developers.',
         technologies: [flutter],
         links: [
             {
@@ -117,5 +98,24 @@ export const projects: Project[] = [
                 url: 'https://github.com/iamstanlee/linkfy_text',
             },
         ],
-    }
+    },
+    {
+        name: 'Flipcoin',
+        description: 'Instant crypto to fiat offramp platform, achieving over $50,000 in total processed volume (TPV)',
+        technologies: [flutter, nodejs, docker, aws, web3],
+        links: [
+            {
+                name: 'web',
+                url: 'https://useflipcoin.com',
+            },
+            {
+                name: 'android',
+                url: 'https://play.google.com/store/apps/details?id=com.flipcoin'
+            },
+            {
+                name: 'iOS',
+                url: 'https://apps.apple.com/us/app/flipcoin/id6503160949'
+            },
+        ],
+    },
 ];

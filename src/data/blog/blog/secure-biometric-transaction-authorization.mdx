@@ -1,0 +1,294 @@
+---
+title: Secure Biometric Transaction Authorization
+date: '2026-02-07'
+tags: ['engineering','systems-design','flutter','code']
+summary: 'In mobile banking, authorizing transactions traditionally relies on PINs or passwords. While functional, these approaches carry inherent risks: PINs can be shoulder-surfed, phished, or brute-forced. This article walks through how we built a biometric transaction signing system that pairs device-native biometrics (Face ID, Touch ID, fingerprint) with RSA digital signatures to authorize financial transactions with cryptographic proof.'
+---
+
+## Introduction
+
+In mobile banking, authorizing transactions traditionally relies on PINs or passwords. While functional, these approaches carry inherent risks: PINs can be shoulder-surfed, phished, or brute-forced. This article walks through how we built a biometric transaction signing system that pairs device-native biometrics (Face ID, Touch ID, fingerprint) with RSA digital signatures to authorize financial transactions with cryptographic proof.
+
+The goal: when a user approves a payment, the app doesn't just confirm "the user typed the right PIN", it produces a **cryptographic signature** that the server can independently verify, binding the user's biometric authentication to a specific transaction payload.
+
+## Architecture Overview
+
+The system is composed of three phases, each handled by distinct layers:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      ENROLLMENT (one-time)                      │
+│                                                                 │
+│  Biometric Prompt ──► RSA Key Generation ──► Public Key ──► API │
+│                           │                                     │
+│                     Private Key ──► Secure Storage              │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│                   TRANSACTION SIGNING (per tx)                  │
+│                                                                 │
+│  Biometric Prompt ──► Load Private Key ──► Sign Payload ──► API │
+│                                                                 │
+│  Payload = { transaction data, timestamp, deviceId }            │
+│  Signature = SHA256withRSA(JSON(payload), privateKey)           │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│                  SERVER-SIDE VERIFICATION                       │
+│                                                                 │
+│  Receive (signature, deviceId, timestamp) as HTTP headers       │
+│  Look up public key by deviceId                                 │
+│  Verify SHA256withRSA(signature, publicKey, payload)            │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+## Phase 1: Biometric Enrollment
+
+Enrollment is the trust-establishment step. It happens once when the user enables "Pay with Face ID" (or fingerprint) in their security settings. An enrollment BLoC orchestrates this flow.
+
+### Step 1 - Verify device capability and authenticate
+
+Before anything, we confirm the device actually supports biometrics and that the user has enrolled credentials at the OS level. A biometric service wraps the platform's local authentication plugin:
+
+```
+function isBiometricAvailable():
+    if device cannot check biometrics → return false
+    availableMethods = query platform for enrolled biometric types
+    return availableMethods is not empty
+```
+
+On Android, we specifically check for **Class 3 (strong) biometrics** before reporting face recognition as available. This is important simply because Android's biometric classes range from Class 1 (convenience) to Class 3 (strong). Only Class 3 provides the hardware-backed security guarantees comparable to Face ID on iOS:
+
+```
+function getPreferredBiometricType(platform):
+    if platform is Android:
+        if device has face AND meets Class 3 (strong) security → return FaceId
+        if device has fingerprint → return Fingerprint
+
+    if platform is iOS:
+        if device has face → return FaceId
+        if device has fingerprint → return Fingerprint
+
+    return null
+```
+
+Once confirmed, we trigger a biometric prompt. The user must authenticate **before** key generation begins, this ensures the key material is only created under an authenticated context.
+
+### Step 2 - Generate an RSA-2048 keypair
+
+Key generation is offloaded to a **background isolate** to avoid blocking the UI thread, since RSA key generation is computationally expensive:
+
+```
+keyPair = run on background isolate:
+    generateRSAKeyPair(
+        publicExponent: 65537,   // Fermat prime (2^16 + 1), fast modular exponentiation
+        keySize: 2048,           // ~112-bit security strength
+        primalityCertainty: 64   // Miller-Rabin false-positive prob ≤ 2^(-128)
+    )
+```
+
+The parameter choices are deliberate:
+- **65537** as the public exponent, it's a Fermat prime with only two set bits making modular exponentiation fast during verification while remaining secure.
+- **2048-bit** key size balances security (~112-bit security strength) with generation performance on mobile devices.
+- **64 rounds** of Miller-Rabin primality testing gives a false-positive probability of at most 2^(-128), which is negligible.
+
+The secure random number generator is seeded with 32 bytes (256 bits) from the platform's cryptographic RNG (`/dev/urandom` on Linux/Android, `SecRandomCopyBytes` on iOS):
+
+```
+function initSecureRandom():
+    rng = FortunaRandom()
+    seed = 32 bytes from platform's cryptographic RNG
+    rng.seed(seed)
+    return rng
+```
+
+Both keys are encoded to standard **PEM format** using ASN.1 DER encoding, the public key uses the X.509 SubjectPublicKeyInfo structure (compatible with most server-side crypto libraries), and the private key uses PKCS#1 RSAPrivateKey format.
+
+### Step 3 - Register the public key with the server
+
+A unique `deviceId` (UUID v4) is generated for this enrollment. The public key, device metadata, and device ID are sent to the backend:
+
+```
+enrollmentRequest = {
+    deviceId:      new UUID v4,
+    publicKey:     keyPair.publicKey (PEM),
+    deviceName:    from platform device info,
+    deviceModel:   from platform device info,
+    platform:      "ios" | "android",
+    hashAlgorithm: "sha256"
+    proofOfPossession: base64(RSA_SHA256_Sign(deviceId, keyPair.privateKey))
+}
+
+response = POST /biometric/enroll (enrollmentRequest)
+```
+
+The request also includes a `hashAlgorithm` field (defaulting to `"sha256"`) to allow the server to know which algorithm was used in signing. A `proofOfPossession` field is defined in the schema for signing the `deviceId` with the private key during enrollment, this would prove key ownership and prevent public key substitution attacks.
+
+### Step 4 - Store the private key securely
+
+On successful enrollment, the private key, public key, and device ID are persisted to **platform secure storage** (Keychain on iOS, EncryptedSharedPreferences / Keystore on Android):
+
+```
+on enrollment success:
+    secureStorage.save("privateKey", keyPair.privateKey)
+    secureStorage.save("publicKey",  keyPair.publicKey)
+    secureStorage.save("deviceId",   deviceId)
+```
+
+The private key **never leaves the device**. It is never transmitted over the network.
+
+## Phase 2: Transaction Signing
+
+When a user initiates a transaction (transfer, payment, etc.), the authorization screen is presented. The transaction authorization BLoC first checks if biometric signing is enrolled:
+
+```
+function checkBiometricEnrollmentStatus():
+    isEnabled = signingService.isSigningEnabled
+
+    if device supports biometrics:
+        emit state(biometricSigning: isEnabled)
+    else:
+        emit state(biometricSigning: error "not supported")
+```
+
+The `isSigningEnabled` check is a compound verification, both a private key must exist in secure storage **and** biometrics must be enabled on the device:
+
+```
+function isSigningEnabled():
+    hasPrivateKey = secureStorage.has("privateKey")
+    biometricsOn  = isBiometricAvailable()
+    return hasPrivateKey AND biometricsOn
+```
+
+If enrolled, biometric signing is **automatically triggered** via a state listener. If not enrolled, the user falls back to PIN entry.
+
+### The signing flow
+
+The transaction signing service method is the core of the feature:
+
+```
+function signTransaction(reason, transactionPayload):
+    // Step 1: Authenticate the user biometrically
+    authenticated = promptBiometric(reason, biometricOnly: true)
+    if not authenticated → throw AuthFailedError
+
+    // Step 2: Load credentials from secure storage (only after auth succeeds)
+    privateKey = secureStorage.get("privateKey")
+    deviceId   = secureStorage.get("deviceId")
+    if either is missing → throw NotEnrolledError
+
+    // Step 3: Construct structured signing payload
+    timestamp = current time
+    signingPayload = {
+        payload:   transactionPayload,
+        timestamp: timestamp,
+        deviceId:  deviceId
+    }
+
+    // Step 4: Sign with SHA256withRSA
+    signature = RSA_SHA256_Sign(
+        data: JSON.encode(signingPayload),
+        key:  privateKey
+    )
+
+    return {
+        signature: base64(signature),
+        deviceId:  deviceId,
+        timestamp: timestamp
+    }
+```
+
+Key design decisions here:
+
+1. **Biometric-first, keys-second**: The user authenticates biometrically *before* the private key is loaded from storage. This creates a temporal gate and the key material is only accessed in an authenticated context.
+
+2. **Structured signing payload**: The signed data isn't just the raw transaction, it's a composite payload containing the transaction data, a timestamp, and the device ID. This prevents replay attacks (timestamp) and binds the signature to a specific enrolled device (deviceId).
+
+3. **SHA256withRSA**: The signing function hashes the JSON-serialized payload with SHA-256 and signs the digest with the RSA private key. The result is Base64-encoded:
+
+```
+function sign(data, privateKeyPem):
+    privateKey = parsePEM(privateKeyPem)
+    dataBytes  = UTF8.encode(data)
+
+    signer = new RSASigner(algorithm: SHA-256)
+    signer.initForSigning(privateKey)
+
+    signature = signer.sign(dataBytes)
+    return base64Encode(signature)
+```
+
+## Phase 3: Server Verification
+
+The authorization result maps directly to HTTP headers for API requests:
+
+```
+Headers (biometric path):
+    x-biometric-signature  →  base64-encoded RSA signature
+    x-biometric-device-id  →  UUID of the enrolled device
+    x-biometric-timestamp  →  timestamp
+```
+
+The server receives three headers: `x-biometric-signature`, `x-biometric-device-id`, and `x-biometric-timestamp`. It reconstructs the signing payload from the request body (the transaction data) plus the device ID and timestamp from headers, then verifies the signature against the public key it stored during enrollment.
+
+## Revocation
+
+Enrollment can be revoked from the biometric settings screen. Revocation notifies the server (so it can discard the public key) and clears all local key material:
+
+```
+function revokeEnrollment():
+    deviceId = secureStorage.get("deviceId")
+    POST /biometric/revoke { deviceId }
+
+    on success:
+        secureStorage.delete("privateKey")
+        secureStorage.delete("publicKey")
+        secureStorage.delete("deviceId")
+```
+
+This is a clean, complete revocation. The device can no longer produce valid signatures, and the server will reject any signatures made with the now-deleted key.
+
+## Security Properties
+
+- **Authentication**: OS-level biometric verification before any key access
+- **Non-repudiation**: RSA signature proves the specific device signed the payload
+- **Replay prevention**: timestamp embedded in the signed payload
+- **Device binding**: UUID v4 device ID links signature to enrolled device
+- **Key confidentiality**: Private key stored in Keychain/Keystore, never transmitted
+- **Tamper evidence**: Any modification to the payload invalidates the signature
+
+## Why Cryptography? The Case Against a Simple Device ID
+
+A reasonable question arises: why not skip the cryptography entirely? A simpler approach would be to generate a random device ID, register it with the backend, store it behind biometric locally, and send it with each transaction as proof of authorization. The biometric prompt still gates access and so what's the difference?
+
+The core problem is that a device ID is a **shared secret**. The moment it travels over the internet, it becomes a bearer token. Anyone who possesses it can authorize transactions. The cryptographic approach never sends the secret (the private key), it sends a *proof derived from it*.
+
+### Network interception
+
+Even over TLS, there are scenarios where traffic can be inspected via proxies, compromised certificate authorities, SSL pinning bypass on rooted/jailbroken devices. If an attacker captures one request containing a device ID, they can replay it indefinitely for any future transaction. A captured cryptographic signature, by contrast, is useless. It is bound to a specific payload and timestamp.
+
+### Server-side compromise
+
+If the backend is breached, an attacker with the device ID table holds **live credentials** capable of authorizing transactions for every enrolled user. With the cryptographic approach, the server only stores public keys which cannot produce signatures. A database leak exposes nothing actionable.
+
+### No transaction binding
+
+A device ID is the same regardless of what transaction it authorizes. There is no link between "what the user saw on screen" and "what the server processes." A compromised intermediary could swap the transaction details (different recipient, different amount) while forwarding the same valid device ID. A cryptographic signature signs the **specific payload** and any tampering invalidates it.
+
+### No replay protection
+
+The device ID doesn't change per transaction. An attacker who obtains it once(from logs, a leaked request, a compromised proxy) and can authorize unlimited transactions. The cryptographic approach embeds a timestamp in the signed payload, giving each signature a limited validity window.
+
+### Indistinguishable credential origin
+
+With a shared secret, the server cannot differentiate between "the real device sent this" and "someone who copied the ID sent this." With asymmetric cryptography, only the holder of the private key (which never leaves the device) can produce a valid signature.
+
+## Comparison
+
+Both approaches share one limitation, if the device itself is fully compromised (rooted with the biometric API hooked), both can be bypassed locally. The cryptographic approach doesn't solve the "compromised device" problem but it solves everything between the device and the server, and everything on the server side.
+
+In short, without cryptography the device ID is essentially a password that gets sent with every request. The biometric prompt is just a local gate to *access* that password, but the password itself is the real credential and it's vulnerable everywhere a password is vulnerable. The RSA approach turns authorization into a **proof of possession**: the secret never moves, only mathematical evidence that you have it.
+
+## Summary
+
+This architecture achieves a meaningful security upgrade over PIN-only authorization. Instead of transmitting a shared secret (the PIN) with each transaction, the biometric path produces a **zero-knowledge proof** and the server can verify the user authorized a specific transaction from a specific device at a specific time, without the device ever revealing its private key.

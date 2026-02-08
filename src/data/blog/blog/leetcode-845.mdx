@@ -1,0 +1,68 @@
+---
+title: Leetcode 845 — Longest Mountain In Array
+date: '2022-12-24'
+tags: ['code']
+summary: 'The leetcode #845 problem is a classic dynamic programming problem where we are asked to return the length of the longest mountain subarray from a given array.'
+---
+
+The leetcode #845 problem is a classic dynamic programming problem where we are asked to return the length of the longest mountain subarray from a given array.
+
+What is a mountain array? from the leetcode description, an array is a mountain array if it satisfies the following conditions
+
+```
+arr.length >= 3
+arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
+arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
+```
+
+So basically it’s an array that models a mountain, for example:-
+
+```
+[1,2,4,3,2,1]
+```
+
+The highest point in this array is 4 and we can see that 1 < 2 < 4 and 4 > 3 > 2 > 1, so it’s a mountain array
+
+```
+[3,2,1]
+```
+
+The highest point in this array is 3 and since it does not satisfy the second condition, it is not a mountain array.
+
+Coming back to the problem, we’re tasked to find the length of the longest mountain subarray, to do that we need to find all the mountain arrays in the input array and find the longest amongst them
+
+### Sub problem — Finding the mountain subarrays
+To find the mountain arrays we need to iterate over the input array and assume the current element as the top of the mountain array and check if it’s a valid mountain array since the top must be greater than both the element before and after it. If it is not valid we’d continue to the next iteration and repeat the process until we find a valid mountain subarray. After finding a valid subarray, we then have to find the extend of the subarray by checking for the second and third conditions.
+
+### Problem — Finding the longest mountain in array
+Now that we know how to find the mountain subarrays, finding the longest is quite easy, we just have to keep track of the longest mountain subarray length we have found and update it when we find a new one.
+
+With the above approach, the solution should look like this
+
+```javascript
+function longestMountain(arr: number[]): number {
+    let longest: number = 0;
+    for(let i = 1;i< arr.length -1;i++) {
+        if(arr[i] <= arr[i -1] || arr[i] <= arr[i +1]) continue; 
+        let length: number = 3;
+        // determine the extend of the mountain subarray found
+        let left = i -1;
+        let right = i +1;
+        while(left != 0 || right != arr.length - 1) {
+            if(arr[left] > arr[left - 1]) {
+                left--;                
+                length++;
+            } else left = 0; // indicates end for the left side of the mountain subarray
+            if(arr[right] > arr[right + 1]) {
+                right++;
+                length++;            
+            } else right = arr.length - 1; // indicates end for the right side of the mountain subarray
+        }
+        
+        if(length > longest) longest = length;
+    }
+    return longest;
+};
+```
+
+Thanks for reading! I intend to write more on topics related to Data structures and Algorithms, Frontend and Mobile Development and everything in-between, so i’ll appreciate a follow, a like and/or share this post.

@@ -62,10 +62,9 @@ export default function Base({menu}: any) {
                     <li className={menu[2]}>
                         <small>
                             02
-                            <a href="https://blog.stanlee.dev" target="_blank" rel="noopener noreferrer">
-                                <img src={navLine} alt="menu bullet"/> BLOG <img className="w-4 h-4" src={arrow}
-                                                                                 alt="pointer"/>
-                            </a>
+                            <Link to="/writings">
+                                <img src={navLine} alt="menu bullet"/> WRITINGS
+                            </Link>
                         </small>
                     </li>
                 </ul>

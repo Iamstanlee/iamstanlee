@@ -93,7 +93,7 @@ const workExperiences: WorkExperience[] = [
             "Created a unified design system, improving UI consistency and reducing implementation time for new features by 30%.",
             "Developed a dynamic, backend-driven onboarding and KYC flow, increasing verification success rates and accelerating user onboarding.",
             "Enhanced core savings functionality, leading to a measurable uptick in active usage and retention.",
-            "Increased test coverage to 50%, reducing regression bugs and supporting a faster, more reliable release cycle.",
+            "Increased test coverage to over 60%, reducing regression bugs and supporting a faster, more reliable release cycle.",
             "Improved performance through strategic caching and optimized remote logging/analytics for better user issue tracking.",
             "Authored technical documentation and onboarding guides, reducing ramp-up time for new developers by 50%."
         ],
