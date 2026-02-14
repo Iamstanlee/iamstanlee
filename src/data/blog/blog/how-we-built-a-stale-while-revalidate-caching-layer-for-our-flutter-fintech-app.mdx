@@ -1,0 +1,262 @@
+---
+title: How We Built a Stale-While-Revalidate Caching Layer for Our Flutter Fintech App
+date: '2026-02-14'
+tags: ['engineering','systems-design','flutter','code']
+summary: 'In mobile fintech apps, every millisecond of loading time erodes user trust. Nobody wants to stare at a spinner while checking their bank balance. But financial data also demands accuracy, you can't show someone a wrong transaction amount just because it loaded faster.'
+---
+
+In mobile fintech apps, every millisecond of loading time erodes user trust. Nobody wants to stare at a spinner while checking their bank balance. But financial data also demands accuracy, you can't show someone a wrong transaction amount just because it loaded faster.
+
+We needed a caching strategy that threads the needle: **instant perceived performance** without sacrificing **data correctness**. This article breaks down the approach we landed on, the trade-offs we made, and how the pieces fit together in a Flutter + Dart codebase.
+
+---
+
+## The Problem
+
+Our app has dozens of API-driven screens. Some data changes rarely (bank lists, fee structures), some changes occasionally (beneficiaries, transaction limits), and some changes constantly (transaction history, real-time balances).
+
+Treating all of these the same way, either always caching or never caching creates obvious problems:
+
+- **Always cache**: Users see stale transaction amounts. A deleted beneficiary still appears. Trust evaporates.
+- **Never cache**: Every screen transition triggers a full network round-trip. The app feels sluggish, especially on poor connectivity.
+
+What we needed was a system where each endpoint could declare its own caching behavior, and where stale data could be shown immediately while fresh data loads silently in the background.
+
+---
+
+## Four Cache Policies, One API
+
+Rather than building separate caching mechanisms, we embedded cache policy selection directly into our HTTP client. Every request accepts a `CachePolicy` enum:
+
+```dart
+enum CachePolicy {
+  noCache,       // Always hit the network
+  useCache,      // Use cache if available and not expired
+  cacheFirst,    // Return stale cache immediately, refresh in background
+  networkFirst,  // Always fetch, but cache the result
+}
+```
+
+This means the repository layer, the code that actually calls APIs reads like a declaration of intent rather than an implementation of caching logic:
+
+```dart
+// Bank lists rarely change so we show cached data instantly, refresh behind the scenes
+Future<Result<List<Bank>>> getBankList() {
+  return Result.guard(
+    () => _http.get(
+      TransactionsEndpoints.getBanks,
+      cachePolicy: CachePolicy.cacheFirst,
+      fromJson: (data) => List.from(data).map((json) => Bank.fromJson(json)).toList(),
+    ),
+  );
+}
+
+// Transaction history must always be real-time
+Future<Result<RankPagedResponse<Transaction>>> getTransactions(...) {
+  return Result.guard(
+    () => _http.get(
+      TransactionsEndpoints.getTransactions,
+      cachePolicy: CachePolicy.noCache,
+      ...
+    ),
+  );
+}
+```
+
+The repository doesn't know *how* caching works. It just says what it wants.
+
+---
+
+## The Core of It: Stale-While-Revalidate
+
+The `cacheFirst` policy is where things get interesting. It implements the [stale-while-revalidate](https://web.dev/stale-while-revalidate/) pattern, commonly used in web browsers and CDNs, but applied at the application layer.
+
+Here's the sequence:
+
+1. User opens a screen that fetches `/transaction/bank-list`.
+2. The HTTP client checks local storage. There's a cached response from 20 minutes ago (expired).
+3. **With `useCache`**, this would be a cache miss and the user waits for a network response.
+4. **With `cacheFirst`**, the expired data is returned immediately. The user sees the screen populate in milliseconds.
+5. Meanwhile, a background network request fires. When it completes, the cache is updated and an event is broadcast.
+6. Any BLoC listening for that endpoint receives the fresh data and updates the UI seamlessly.
+
+The user experience is: the screen loads instantly, and if anything changed, it silently updates a moment later. No spinners, no jank.
+
+### The Background Fetch
+
+When a `cacheFirst` request finds cached data, it kicks off a non-blocking fetch:
+
+```dart
+void _fetchAndCacheInBackground(String endpoint, ...) {
+  _makeNetworkRequest(HttpRequestType.get, endpoint, ...)
+    .then((result) {
+      cacheService.cacheResponse(endpoint, result, ...).then((_) {
+        // Notify listeners that fresh data is available
+        DataBus.instance.emit<CacheSyncPayload>(
+          HttpCacheEventKey.cacheSync,
+          data: CacheSyncPayload.success(
+            endpoint: endpoint,
+            data: result,
+          ),
+        );
+      });
+    })
+    .catchError((error) {
+      DataBus.instance.emit<CacheSyncPayload>(
+        HttpCacheEventKey.cacheSync,
+        data: CacheSyncPayload.failure(
+          endpoint: endpoint,
+          error: Exception(error.toString()),
+        ),
+      );
+    });
+}
+```
+
+Two things to note here:
+
+1. **The fetch is fire-and-forget.** The original `get()` call already returned the cached data. This runs independently.
+2. **Both success and failure emit events.** This lets the UI layer decide how to handle sync failures (retry, show a subtle error indicator, or just ignore it).
+
+---
+
+## Closing the Loop: Event-Driven State Updates
+
+Fetching fresh data in the background is only half the story. The UI needs to know when it arrives. We solved this with an in-app event bus (`DataBus`) and a mixin that BLoCs can use to subscribe to cache updates.
+
+```dart
+class SavingsBloc extends CoreBloc<SavingsState> with CacheSyncMixin {
+  SavingsBloc() : super(initialState: const SavingsState()) {
+    watchCacheSync(
+      endpoints: [SavingsEndpoints.getMySavings],
+      onSync: (payload) {
+        if (payload.isSuccess && payload.data != null) {
+          add(_OnCacheSynced(payload.data));
+        }
+      },
+    );
+  }
+
+  @override
+  Future<void> close() {
+    unwatchCacheSync(); // Clean up listener
+    return super.close();
+  }
+}
+```
+
+The `CacheSyncMixin` handles the boilerplate: registering with the DataBus, filtering events by endpoint, and cleaning up when the BLoC is disposed. The BLoC only needs to specify *which* endpoints it cares about and *what to do* when fresh data arrives.
+
+This design keeps the reactive update logic opt-in. Not every screen needs it. A settings page that fetches account tiers with `useCache` doesn't need background sync, the standard TTL expiration is sufficient.
+
+---
+
+## Cache Invalidation: The Hard Part
+
+Phil Karlton famously said there are only two hard things in computer science: cache invalidation and naming things. We dealt with both, but invalidation was definitely harder.
+
+The problem: when a user deletes a beneficiary, the cached beneficiary list is now wrong. When they update their daily transaction limit, the cached limits response is stale. We needed a way to surgically invalidate related cache entries when mutations succeed.
+
+### Targeted Invalidation
+
+Every mutation request accepts an `invalidateCacheKeys` parameter, a list of endpoint strings whose cache entries should be cleared when the mutation succeeds:
+
+```dart
+Future<Result<Nothing>> deleteBeneficiary(String id) {
+  return Result.guard(() async {
+    await _http.delete(
+      '/transaction/beneficiary/$id',
+      invalidateCacheKeys: ['/transaction/beneficiary'], // Clear the list cache
+    );
+    return nothing;
+  });
+}
+```
+
+This is explicit and predictable. The repository author knows exactly which caches will be affected by each mutation. No magic, no implicit coupling.
+
+### Auto-Invalidation
+
+For mutations where the endpoint matches a cacheable GET (e.g PATCH to `/account/limit` should invalidate the GET cache for `/account/limit`), the system supports `autoInvalidateCache`. When enabled (it's the default for mutations), the mutation's own endpoint cache is cleared automatically.
+
+### Pattern-Based Invalidation
+
+For cases where you need to clear multiple cache entries under a prefix, the cache service supports wildcard patterns:
+
+```dart
+// Clears all cache entries starting with /transaction/beneficiary
+cacheService.invalidateCache('/transaction/beneficiary:*');
+```
+
+This handles scenarios where the same endpoint is cached with different query parameter combinations.
+
+---
+
+## Storage: Keeping It Simple
+
+We considered SQLite, Hive, Drift and other Flutter local storage/db. We went with `SharedPreferences`.
+
+Why? Because our cache entries are individual API responses — typically a few KB of JSON. We don't need relational queries, migrations, or complex indexing. `SharedPreferences` gives us key-value persistence that survives app restarts, with zero setup overhead.
+
+Each cache entry is stored as a JSON object with two fields:
+
+```json
+{
+  "data": "<serialized response>",
+  "expiration": 1708000000000
+}
+```
+
+The cache key is deterministic: `httpcache(<endpoint>[?<query_string>])`. Same request, same key. Different query parameters, different key.
+
+The default TTL is 15 minutes, configurable globally or per-request.
+
+---
+
+## Retry Logic: Because Networks Are Unreliable
+
+Caching helps with perceived performance, but it doesn't help when the network request itself fails. We layered in a retry strategy with exponential backoff and jitter:
+
+```dart
+class RetryStrategy {
+  final int maxAttempts;      // Default: 3
+  final int baseDelayMs;      // Default: 1000ms
+  final int maxDelayMs;       // Default: 10000ms
+  final bool useExponentialBackoff;
+}
+```
+
+The delay formula is `baseDelay * 2^attempt + random_jitter`, capped at `maxDelayMs`. The jitter prevents thundering herd problems when multiple requests retry simultaneously.
+
+Critically, **financial mutations like transfers use `RetryStrategy.noRetry`**. Retrying a bank transfer is a great way to send someone's money twice. The retry system is opt-out at the call site:
+
+```dart
+_http.post(
+  TransactionsEndpoints.transferToBank,
+  data: payload.toJson(),
+  retryStrategy: RetryStrategy.noRetry, // Never retry transfers
+);
+```
+
+By default, only network-level errors trigger retries: timeouts, connection failures, and 5xx server errors. Client errors (4xx) are not retried since they indicate a problem with the request itself.
+
+---
+
+## What We'd Do Differently
+
+No system is perfect. A few things we've learned:
+
+1. **Cache size is unbounded.** We don't currently cap total cache size. For now, TTL-based expiration keeps things manageable, but a max-size eviction policy (LRU) would be a smart addition.
+
+2. **The `cacheFirst` policy shines for read-heavy screens** but adds complexity. Every BLoC that uses it needs to implement the `CacheSyncMixin` and handle the background update. For endpoints where this overhead isn't worth it, `useCache` with a short TTL is simpler and nearly as effective.
+
+3. **Cross module cache invalidation.** Our current invalidation is scoped within individual repositories. When a mutation in one module (e.g payments) should invalidate cached data in another (e.g savings), there's no built-in way to express that dependency. A centralized invalidation bus or event-driven cache purge system would let modules declare cross-cutting invalidation rules without tight coupling.
+
+---
+
+## Key Takeaways
+
+- **Make caching declarative.** The repository says *what* it wants (`cacheFirst`, `noCache`), not *how* to cache. This keeps business logic clean.
+- **Stale-while-revalidate is a great fit for mobile.** Users get instant screens. Fresh data arrives silently. The UX improvement is dramatic.
+- **Invalidation must be explicit.** Implicit cache invalidation leads to subtle, hard-to-debug staleness bugs. Making the repository author declare `invalidateCacheKeys` forces them to think about data dependencies.
+- **Not everything should be cached the same way.** A bank list and a transaction history have fundamentally different freshness requirements. The policy enum makes this easy to express.
