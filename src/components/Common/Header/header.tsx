@@ -39,8 +39,8 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link to="/writings" onClick={toggleMenu}>
-                  WRITINGS
+                <Link to="/articles" onClick={toggleMenu}>
+                  ARTICLES
                 </Link>
               </li>
             </ul>

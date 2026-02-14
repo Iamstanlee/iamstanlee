@@ -5,8 +5,8 @@ import Base from './components/Base/base';
 import Mobile from './components/Base/mobile';
 import Projects from './components/Projects/projects';
 import Resume from './components/Resume/resume';
-import Writings from './components/Writings/writings';
-import WritingPost from './components/Writings/writing-post';
+import Articles from './components/Articles/articles';
+import ArticlePost from './components/Articles/article-post';
 import Header from './components/Common/Header/header';
 import SocialIconsList from './components/Common/socialIconsList';
 
@@ -53,8 +53,8 @@ function App() {
                             <Route exact path="/" render={(_) => <Mobile menu={menu}/>}/>
                             <Route exact path="/resume" render={(_) => <Resume activeMenu={activeMenu}/>}/>
                             <Route exact path="/projects" render={(_) => <Projects activeMenu={activeMenu}/>}/>
-                            <Route exact path="/writings" render={(_) => <Writings activeMenu={activeMenu}/>}/>
-                            <Route exact path="/writings/:slug" render={(_) => <WritingPost activeMenu={activeMenu}/>}/>
+                            <Route exact path="/articles" render={(_) => <Articles activeMenu={activeMenu}/>}/>
+                            <Route exact path="/articles/:slug" render={(_) => <ArticlePost activeMenu={activeMenu}/>}/>
                         </Switch>
                     </div>
                     <SocialIconsList cn="social_buttons"/>
@@ -69,9 +69,9 @@ function App() {
                                 <Route exact path="/" render={(_) => <Resume activeMenu={activeMenu}/>}/>
                                 <Route exact path="/resume" render={(_) => <Resume activeMenu={activeMenu}/>}/>
                                 <Route exact path="/projects" render={(_) => <Projects activeMenu={activeMenu}/>}/>
-                                <Route exact path="/writings" render={(_) => <Writings activeMenu={activeMenu}/>}/>
-                                <Route exact path="/writings/:slug"
-                                       render={(_) => <WritingPost activeMenu={activeMenu}/>}/>
+                                <Route exact path="/articles" render={(_) => <Articles activeMenu={activeMenu}/>}/>
+                                <Route exact path="/articles/:slug"
+                                       render={(_) => <ArticlePost activeMenu={activeMenu}/>}/>
                             </Switch>
                         </div>
                     </div>

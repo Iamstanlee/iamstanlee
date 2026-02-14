@@ -1,24 +1,24 @@
 import {blogPosts} from '~/data/blog';
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import './writings.scss';
+import './articles.scss';
 
-interface WritingsProps {
+interface ArticlesProps {
     activeMenu: (arg: number) => void;
 }
 
-export default function Writings(props: WritingsProps) {
+export default function Articles(props: ArticlesProps) {
     useEffect(() => {
         props.activeMenu(2);
     }, []);
 
     return (
-        <div className="writings">
-            <div className="writings_container">
-                <h3>Writings</h3>
+        <div className="articles">
+            <div className="articles_container">
+                <h3>#articles</h3>
                 <div className="posts">
                     {blogPosts.map((post, idx) => (
-                        <Link to={`/writings/${post.slug}`} key={post.slug} className="post_link">
+                        <Link to={`/articles/${post.slug}`} key={post.slug} className="post_link">
                             <section className="post">
                                 <p className="post_title">
                                     {`0${idx} — `}{post.title}

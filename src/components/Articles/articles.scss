@@ -1,4 +1,4 @@
-.writings_container {
+.articles_container {
   display: flex;
   flex-direction: column;
   background-color: #f8f8f8;
@@ -185,16 +185,16 @@
   }
 }
 
-.writings .go_button_container {
+.articles .go_button_container {
   display: none;
 }
 
 @media (max-width: 993px) {
-  .writings_container {
+  .articles_container {
     margin: 30px 0;
   }
 
-  .writings .go_button_container {
+  .articles .go_button_container {
     display: flex;
     margin-bottom: 20px;
   }

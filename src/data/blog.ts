@@ -29,11 +29,11 @@ function parseFrontmatter(raw: string): BlogPost {
     return {slug: '', title: get('title'), date: get('date'), tags: getArray('tags'), summary: get('summary'), images: getArray('images'), content};
 }
 
-const modules = import.meta.glob('./blog/blog/*.mdx', {as: 'raw', eager: true});
+const modules = import.meta.glob('./articles/*.mdx', {as: 'raw', eager: true});
 
 export const blogPosts: BlogPost[] = Object.entries(modules)
     .map(([path, raw]) => {
-        const slug = path.replace('./blog/blog/', '').replace('.mdx', '');
+        const slug = path.replace('./articles/', '').replace('.mdx', '');
         const post = parseFrontmatter(raw as string);
         post.slug = slug;
         return post;

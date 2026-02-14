@@ -17,7 +17,7 @@ export default function Projects(props: ProjectsProps) {
     return (
         <div className="project">
             <div className="projects_container">
-                <h3>Side projects</h3>
+                <h3>#side_projects</h3>
                 <div className="project_container">
                     {projects.map((project, idx) => (
                         <section className="project" key={idx}>
@@ -58,8 +58,8 @@ export default function Projects(props: ProjectsProps) {
                         <b>➜ </b>Resume
                     </button>
                 </Link>
-                <Link to="/writings">
-                    <button>Writings ➜</button>
+                <Link to="/articles">
+                    <button>Articles ➜</button>
                 </Link>
             </div>
         </div>

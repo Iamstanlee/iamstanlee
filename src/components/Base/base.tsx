@@ -62,8 +62,8 @@ export default function Base({menu}: any) {
                     <li className={menu[2]}>
                         <small>
                             02
-                            <Link to="/writings">
-                                <img src={navLine} alt="menu bullet"/> WRITINGS
+                            <Link to="/articles">
+                                <img src={navLine} alt="menu bullet"/> ARTICLES
                             </Link>
                         </small>
                     </li>

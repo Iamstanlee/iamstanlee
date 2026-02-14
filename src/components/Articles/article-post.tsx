@@ -2,13 +2,13 @@ import {getPostBySlug} from '~/data/blog';
 import React, {useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import './writings.scss';
+import './articles.scss';
 
-interface WritingPostProps {
+interface ArticlePostProps {
     activeMenu: (arg: number) => void;
 }
 
-export default function WritingPost(props: WritingPostProps) {
+export default function ArticlePost(props: ArticlePostProps) {
     const {slug} = useParams<{slug: string}>();
     const post = getPostBySlug(slug);
 
@@ -18,19 +18,19 @@ export default function WritingPost(props: WritingPostProps) {
 
     if (!post) {
         return (
-            <div className="writings">
-                <div className="writings_container">
+            <div className="articles">
+                <div className="articles_container">
                     <h2>Post not found</h2>
-                    <Link to="/writings">← Back to writings</Link>
+                    <Link to="/articles">← Back to articles</Link>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="writings">
-            <div className="writings_container">
-                <Link to="/writings" className="back_link">← Back to writings</Link>
+        <div className="articles">
+            <div className="articles_container">
+                <Link to="/articles" className="back_link">← Back to articles</Link>
                 <div className="post_header">
                     <h2>{post.title}</h2>
                     <span className="post_date">
@@ -49,9 +49,9 @@ export default function WritingPost(props: WritingPostProps) {
                 </div>
             </div>
             <div className="go_button_container">
-                <Link to="/writings">
+                <Link to="/articles">
                     <button>
-                        <b>➜ </b>Writings
+                        <b>➜ </b>Articles
                     </button>
                 </Link>
             </div>
